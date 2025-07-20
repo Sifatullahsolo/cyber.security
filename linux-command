@@ -1,0 +1,199 @@
+#Linux Command Cheat Sheet
+
+
+### Navigate the File System
+
+| -------------------------- | ------------------------------------- |
+| cd                         | Change directory                      |
+| cd /			     | Go to root d
+| cd ~			     | navigate to home
+| cd "reports"               | Go to 'reports' subdir                |
+| cd /home/analyst/reports   | Go to full path                       |
+| cd ..                      | Go up one directory                   |
+| ls                         | List files and dirs                   |
+| ls /			     | list content of root d
+| ls /path                   | Lists files in given path
+| ls -a                      | Include hidden files                  |
+| ls -l                      | Long format (permissions, size, etc.) |
+| ls -la                     | Long + hidden files                   |
+| ls -d */		     | to only appear dir not files in current dir
+| pwd                        | Print current directory               |
+| whoami                     | Show current user name                |
+
+
+
+
+####📂 Listing & Sorting Files
+| --------- | ------------------------------- | 
+| ls -l   | Sorts files by name.            |                                                
+| ls -lS  | Sorts by size (largest first).  |                                                
+| ls -lSr | Sorts by size (smallest first). |                                                
+| ls -X   | Sorts by extension.             |                                         
+| pipe '|'         ls | grep ".txt"  -- Lists all .txt files 
+
+
+
+
+### Read Files
+| ---------------- | ------------------------ |
+| cat file       | Show all content of file |
+| head file      | Show first 10 lines      |
+| head -n 5 file | Show first 5 lines       |
+| less file      | Scrollable file viewer   |
+| tail file      | Show last 10 lines       |
+| tail -n 5 file | Show last 5 lines        |
+>	echo "txt" > f.txt		overwrite a file (clears old content)
+>>	echo "txt" >> f.txt		append to a file
+cat > [file]	   | Overwrites file and lets u write new text.
+
+
+
+### Manage File System
+| ------------- | ------------------------|
+| cp src dest` | Copy file/directory      |
+| cp [file or d_name] [/directory]	   copies a file or directory into a new location
+| mkdir name`  | Make new directory       |
+| mkdir [path] [directory name]	   create new directory in described locaiton 
+| -p           | mkdir -p /path/to/dir/   Creates parent directories if they don’t exist
+| mv src dest` | Move or rename file/dir  |
+| mv [file name] [/directory]		   moves a file / directory to a new location
+| mv [oldname] [newName]		   Rename a file / directory
+| nano file`   | Edit/create file in nano |
+| nano [file name in the d]	   Edit file in a new terminal
+| nano [new file name]		   Creates new file in current d & opens in new editing window.
+| rm file`     | Delete file     
+| rmdir dir`   | Delete empty directory   |
+| touch file`  | Create empty file        |
+| rm -r [dir]`  | Recursively deletes directory and contents. |
+| rm -rf [dir]` | Force deletes directory without prompts.    |
+
+
+
+### Find file and Filter Content
+| -------------------------- | ----------------------------------- |
+| `find path`                | Find files/dirs under path          |
+| `find path -name "*str*"`  | Find files by name (case-sensitive) |
+| `find path -iname "*str*"` | Find files (case-insensitive)       |
+| `find path -mtime -3`      | Modified within 3 days              |
+| `find path -mmin -15`      | Modified within 15 minutes          |
+| `grep str file`            | Find lines with string              |
+|  ls path | grep 'str'      | List files filtered by string 	   |
+| ------------------------------------ | ----------------------------------------- |
+| `find . -name "file.txt"`            | Searches for "file.txt" in current dir.   |
+| `find /home/user/ -iname "File.txt"` | Case-insensitive search in `/home/user/`. |
+| `find . -name *.txt`                 | Finds all `.txt` files.                   |
+| `find . -name "log*"`                | Finds files starting with "log".          |
+| `find . -type d -name "log*"`        | Finds directories starting with "log".    |
+| `find [path] -type f`                | Finds all files (not dirs) under path.    |
+| `find [path] -mtime -7`              | Files modified in last 7 days.            |
+| `find . -mtime +10`                  | Files modified over 10 days ago.          |
+| `find . -mmin -30`                   | Files modified in last 30 minutes.        |
+| `find [path] -type f -empty`         | Finds empty files.                        |
+| `find [path] -type d -empty`         | Finds empty directories.                  |
+| `find [path] -name "*txt" -delete`   | Deletes `.txt` files in path.             |
+#Search by Size
+| -------------------------- | ---------------------------------- |
+| `find [path] -size +1G`    | Files > 1 GB.                      |
+| `find [path] -size +500k`  | Files > 500 KB.                    |
+| `find [path] -size +5M`    | Files > 5 MB.                      |
+| `find [path] -size -5M`    | Files < 5 MB.                      |
+| `find . -type f -size -5M` | Files only (not dirs), under 5 MB. |
+Advanced Use
+| ------------------------------------------------------ | ------------------------------------------------ |
+| `find . -type f -name "*.txt" \| xargs grep "example"` | Find `.txt` files and grep for "example" inside. |
+
+
+
+
+### Manage Users & Permissions
+Ownership Management
+| ------------------------------- | --------------------------------------------------- |
+sudo chown fgarcia access.txt			Now, fgarcia owns the file access.txt.
+sudo chown :security access.txt			file belongs to group security. The ':' tells Linux it's a group, not a user.
+sudo chown fgarcia:security access.txt		Now fgarcia is the owner, and security is the group.
+sudo chown -R fgarcia:security /home/fgarcia	Changes ownership for the whole folder and its contents.
+
+
+👤 User & Group Management
+Authentication
+| Command         | Description                       |
+| --------------- | --------------------------------- |
+| `su`            | Switch to root user.              |
+| `su [username]` | Switch to another user.           |
+| `exit`          | Return to your original user.     |
+| `sudo`          | Temporarily gain elevated access. |
+| `passwd`        | Change your password.             |
+
+User Management
+| Command                  | Description                               |
+| ------------------------ | ----------------------------------------- |
+| `sudo useradd [user]`    | Adds new user. only root / sudo previlige can add 
+| `sudo userdel [user]`    | Deletes user (not files).                 |
+| `sudo userdel -r [user]` | Deletes user and their home directory.    |
+| `sudo passwd Ali`        | Sets password for Ali.                    |
+| `groups [username]`      | Lists user's groups.                      |
+| `getent group logadmin`  | Shows details if `logadmin` group exists. |
+
+Group Assignments
+| Command                                       | Description                               |
+| --------------------------------------------- | ----------------------------------------- |
+| `sudo useradd -g group1 Ali`                  | Sets `group1` as Ali's primary group.     |
+| `sudo useradd -G group2,group3 Ali`           | Adds Ali to secondary groups.             |
+| `sudo useradd -g group1 -G group2,group3 Ali` | Sets primary + multiple secondary groups. |
+| `sudo useradd -g [group] [user]`              | Assigns primary group to new user.        |
+|  sudo useradd -G [group1],[group2] [user_name]| adds user to secondary groups, These are additional groups 
+						the user can access but don’t automatically apply to the files they create.
+
+Modify User (usermod)
+| Command                           | Description                                 |
+| --------------------------------- | ------------------------------------------- |
+| `sudo usermod -g newgroup user`   | Changes user from primary group to an other group.
+| `sudo usermod -a -G group user`   | Add to supplemental group		       	  |
+| `sudo usermod -a -G g1,g2 user`   | Adds the user to secondary groups without removing any other groups he’s in already.
+| `sudo usermod -d /new/home user`  | Changes user's home directory of a user	  |
+| `sudo usermod -l newname oldname` | Renames the user.                           |
+| `sudo usermod -l new user`        | Change login name 		          |
+| `sudo usermod -L user`            | 🔐 Locks the user's account so they can't log in.
+| `sudo usermod -G group user`     | Replace supplemental groups     |
+
+
+
+--------------------------------------------------------------------------------
+
+| Command                          | Description                     |
+| -------------------------------- | ------------------------------- |
+| chmod [permissions] [file]	   | chmod u+rwx,g+rwx,o+rwx login_sessions.txt  → Givs all permissions to everyone for that file.
+| chmod [permission] [file or d]   | chmod u-rwz,g-rwx,o-rwx login_session.txt    takes back all permission from use,group,other
+| chmod o-rwx file.txt		   | Note: u can use them for one singel permissin  too 
+| `chmod u=r,g=r,o=r file`         | Set read-only for all           |
+|  chown			   | used to change who owns a file or folder — either the user, the group, or both.
+| `chown user file`                | Change file owner               |
+| `chown :group file`              | Change file group               |
+| `sudo groupdel group`            | Delete group                    |
+|  groups [username]		| itshows all the groups that a user belongs to, including both their primary group and any secondary groups
+|  getent [group_name] logadmin	   | Checks if the group logamin exist & shows its details.
+
+
+
+
+
+### Get Help
+
+| -------------------- | --------------------------- |
+| `apropos keyword`    | finds commands related to a keyword.
+| `apropos -a kw1 kw2` | Match all keywords          |
+|  apropos user | grep add | grep create	     filters commands related to "user" that also have both "add" and "create" in them.
+|  apropos user | grep -i login			     -i makes it case-insensitive, shows both"login","Login"
+| -a    | apropos -a user add			     Finds commands that match both words: "user" and "add"
+| -e    | apropos -e user			     Shows exact match only (no partial word matches)
+| `whatis [COMMAND]`  | Shows a brief description of the command.                                |
+| `man [COMMAND]`     | Shows manual with all details and filters. ENTER: next line, SPACE: page |
+| `type [COMMAND]`    | Shows type: alias, binary, shell builtin, etc.                           |
+| `whereis [COMMAND]` | Locates binary, source, and man page of a command.                       |
+
+
+
+
+
+
+
