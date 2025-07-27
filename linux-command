@@ -197,3 +197,97 @@ Modify User (usermod)
 
 
 
+
+
+
+--------------------------------------------------------------------------------
+
+| Command                          | Description                     |
+| -------------------------------- | ------------------------------- |
+
+hostname				to learn machine name
+uname					to learn my name user name 
+curl OR wget [ download link] 		to download files from internt via command line
+
+
+zip file.zip file.txt			to zip a file
+unzip file.zip				to unzip file
+
+zip folder.zip -r foldername/		to zip a folder   (-r: zip folder recursively)
+unzip file.zip -d /path/to/folder	
+# ✅ Install it if missing		sudo apt install zip unzip
+
+
+leafpad filename.txt			its text editor for Linux, like Notepad in Windows.
+
+
+
+date					tp see date
+cal					to see calendar
+uptime 				shows how long the system has been on, plus load and users
+
+neofetch			displays system informaitons | as in windows  pc properties
+finger [username]		See who is logged in,last login time, Check home directory
+figlet Hello			makes big text banners in the terminal using ASCII art
+
+bc				basic calculator | 1+2 Enter # 3
+
+
+
+
+
+git clone <repository-url>	
+# Example:  git clone https://github.com/cowrie/cowrie.git
+[  Go to the tool folder or etc folder on GitHub,Click the Code button (usually green) on that page, You see a URL starting with https:// — copy that URL
+Use in terminal:  git clone <copied-https-url>
+
+
+
+
+
+
+
+
+| Command                | Description                |
+| ---------------------- | -------------------------- |
+| `sudo shutdown now`    | Shutdown immediately.      |
+| `sudo shutdown +5`     | Shutdown after 5 minutes.  |
+| `sudo shutdown 22:30`  | Shutdown at 10:30 PM.      |
+| `sudo shutdown -r now` | Restart immediately.       |
+| `sudo shutdown -c`     | Cancel scheduled shutdown. |
+
+
+
+
+
+
+| Command                                            | Description                             |
+| -------------------------------------------------- | --------------------------------------- |
+| `ifconfig`                                         | Shows network interfaces and their IPs. |
+| `ifconfig -a`                                      | Displays all interfaces, even inactive. |
+| `sudo ifconfig eth0 up`                            | Activates interface `eth0`.             |
+| `sudo ifconfig eth0 down`                          | Deactivates interface `eth0`.           |
+| `ifconfig eth0 192.168.1.10 netmask 255.255.255.0` | Assigns IP and subnet to `eth0`.        |
+
+
+
+
+
+| Command                      | Description                                                            
+| -----------------------------| --------------------------------------
+| `ip addr`                    | Shows all IP addresses and network interfaces.                         |
+| `ping <ip/domain>`           | Sends test packets to check if a host is reachable.                    |
+| `traceroute <ip/domain>`     | Shows the path packets take to reach a host.                           |
+| `arp-scan --localnet`        | Scans your local network for active devices using ARP.                 |
+| `netdiscover`                | Discovers live hosts on the local network using ARP requests.          |
+| `nmap <ip>/24`               | Scans entire subnet for open ports and hosts.                          |
+| `dnsenum <domain>`           | Performs DNS information gathering (NS, MX, subdomains).               |
+| `searchsploit <tool/vuln>`   | Searches Exploit-DB for public exploits related to a term or software. |
+| `cewl <url> -w wordlist.txt` | Creates a custom wordlist from a target website.                       |
+| `setoolkit`                  | Launches the Social-Engineer Toolkit (phishing, cloning, etc.).        
+
+
+
+
+
+
