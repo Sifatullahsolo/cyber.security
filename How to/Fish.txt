@@ -1,0 +1,11 @@
+### 🐟 **Install Fish Shell**
+
+```bash
+sudo apt install fish -y
+```
+
+✅ Then make Fish your default shell (optional):
+
+```bash
+chsh -s /usr/bin/fish
+```
