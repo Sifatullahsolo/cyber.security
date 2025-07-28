@@ -3,111 +3,103 @@
 
 ### Navigate the File System
 
-| -------------------------- | ------------------------------------- |
-| cd                         | Change directory                      |
-| cd /			     | Go to root d
-| cd ~			     | navigate to home
-| cd "reports"               | Go to 'reports' subdir                |
-| cd /home/analyst/reports   | Go to full path                       |
-| cd ..                      | Go up one directory                   |
-| ls                         | List files and dirs                   |
-| ls /			     | list content of root d
-| ls /path                   | Lists files in given path
-| ls -a                      | Include hidden files                  |
-| ls -l                      | Long format (permissions, size, etc.) |
-| ls -la                     | Long + hidden files                   |
-| ls -d */		     | to only appear dir not files in current dir
-| pwd                        | Print current directory               |
-| whoami                     | Show current user name                |
+cd                         Change directory.
+cd /                       Go to root directory.
+cd ~                       Navigate to home directory.
+cd "reports"               Go to 'reports' subdirectory.
+cd /home/analyst/reports   Go to full path directory.
+cd ..                      Go up one directory.
+ls                         List files and directories.
+ls /                       List content of root directory.
+ls /path                   List files in given path.
+ls -a                      Include hidden files.
+ls -l                      Long format (permissions, size, etc.).
+ls -la                     Long format + hidden files.
+ls -d */                   Show only directories in current directory.
+pwd                        Print current directory.
+whoami                     Show current user name.
 
-
-
-
-####📂 Listing & Sorting Files
-| --------- | ------------------------------- | 
-| ls -l   | Sorts files by name.            |                                                
-| ls -lS  | Sorts by size (largest first).  |                                                
-| ls -lSr | Sorts by size (smallest first). |                                                
-| ls -X   | Sorts by extension.             |                                         
-| pipe '|'         ls | grep ".txt"  -- Lists all .txt files 
-
+ls -l                      Sorts files by name.
+ls -lS                     Sorts by size (largest first).
+ls -lSr                    Sorts by size (smallest first).
+ls -X                      Sorts by extension.
+ls | grep ".txt"           Lists all .txt files.
 
 
 
 ### Read Files
-| ---------------- | ------------------------ |
-| cat file       | Show all content of file |
-| head file      | Show first 10 lines      |
-| head -n 5 file | Show first 5 lines       |
-| less file      | Scrollable file viewer   |
-| tail file      | Show last 10 lines       |
-| tail -n 5 file | Show last 5 lines        |
->	echo "txt" > f.txt		overwrite a file (clears old content)
->>	echo "txt" >> f.txt		append to a file
-cat > [file]	   | Overwrites file and lets u write new text.
+cat file             Show all content of file.
+head file            Show first 10 lines.
+head -n 5 file       Show first 5 lines.
+less file            Scrollable file viewer.
+tail file            Show last 10 lines.
+tail -n 5 file       Show last 5 lines.
+echo "txt" > f.txt   Overwrite a file (clears old content).
+echo "txt" >> f.txt  Append to a file.
+cat > [file]         Overwrite file and lets you write new text.
 
 
 
 ### Manage File System
-| ------------- | ------------------------|
-| cp src dest` | Copy file/directory      |
-| cp [file or d_name] [/directory]	   copies a file or directory into a new location
-| mkdir name`  | Make new directory       |
-| mkdir [path] [directory name]	   create new directory in described locaiton 
-| -p           | mkdir -p /path/to/dir/   Creates parent directories if they don’t exist
-| mv src dest` | Move or rename file/dir  |
-| mv [file name] [/directory]		   moves a file / directory to a new location
-| mv [oldname] [newName]		   Rename a file / directory
-| nano file`   | Edit/create file in nano |
-| nano [file name in the d]	   Edit file in a new terminal
-| nano [new file name]		   Creates new file in current d & opens in new editing window.
-| rm file`     | Delete file     
-| rmdir dir`   | Delete empty directory   |
-| touch file`  | Create empty file        |
-| rm -r [dir]`  | Recursively deletes directory and contents. |
-| rm -rf [dir]` | Force deletes directory without prompts.    |
+cp src dest             Copy file/directory.
+cp [file or dir] [/directory]   Copies file or directory to new location.
+mkdir name              Make new directory.
+mkdir [path] [directory name]  Create new directory in specified location.
+-p                      mkdir -p /path/to/dir/   Creates parent directories if they don’t exist.
+mv src dest             Move or rename file/directory.
+mv [file name] [/directory]    Moves file/directory to new location.
+mv [oldname] [newname]          Rename file/directory.
+nano file               Edit/create file in nano editor.
+nano [file name in dir]  Edit file in new terminal window.
+nano [new file name]     Create new file in current dir & open editor.
+rm file                 Delete file.
+rmdir dir               Delete empty directory.
+touch file              Create empty file.
+rm -r [dir]             Recursively delete directory and contents.
+rm -rf [dir]            Force delete directory without prompts.
+
+
 
 
 
 ### Find file and Filter Content
-| -------------------------- | ----------------------------------- |
-| `find path`                | Find files/dirs under path          |
-| `find path -name "*str*"`  | Find files by name (case-sensitive) |
-| `find path -iname "*str*"` | Find files (case-insensitive)       |
-| `find path -mtime -3`      | Modified within 3 days              |
-| `find path -mmin -15`      | Modified within 15 minutes          |
-| `grep str file`            | Find lines with string              |
-|  ls path | grep 'str'      | List files filtered by string 	   |
-| ------------------------------------ | ----------------------------------------- |
-| `find . -name "file.txt"`            | Searches for "file.txt" in current dir.   |
-| `find /home/user/ -iname "File.txt"` | Case-insensitive search in `/home/user/`. |
-| `find . -name *.txt`                 | Finds all `.txt` files.                   |
-| `find . -name "log*"`                | Finds files starting with "log".          |
-| `find . -type d -name "log*"`        | Finds directories starting with "log".    |
-| `find [path] -type f`                | Finds all files (not dirs) under path.    |
-| `find [path] -mtime -7`              | Files modified in last 7 days.            |
-| `find . -mtime +10`                  | Files modified over 10 days ago.          |
-| `find . -mmin -30`                   | Files modified in last 30 minutes.        |
-| `find [path] -type f -empty`         | Finds empty files.                        |
-| `find [path] -type d -empty`         | Finds empty directories.                  |
-| `find [path] -name "*txt" -delete`   | Deletes `.txt` files in path.             |
-#Search by Size
-| -------------------------- | ---------------------------------- |
-| `find [path] -size +1G`    | Files > 1 GB.                      |
-| `find [path] -size +500k`  | Files > 500 KB.                    |
-| `find [path] -size +5M`    | Files > 5 MB.                      |
-| `find [path] -size -5M`    | Files < 5 MB.                      |
-| `find . -type f -size -5M` | Files only (not dirs), under 5 MB. |
-Advanced Use
-| ------------------------------------------------------ | ------------------------------------------------ |
-| `find . -type f -name "*.txt" \| xargs grep "example"` | Find `.txt` files and grep for "example" inside. |
+find path                    Find files/directories under path.
+find path -name "*str*"      Find files by name (case-sensitive).
+find path -iname "*str*"     Find files by name (case-insensitive).
+find path -mtime -3          Files modified within last 3 days.
+find path -mmin -15          Files modified within last 15 minutes.
+grep str file                Find lines containing string in file.
+ls path | grep 'str'         List files filtered by string.
+
+find . -name "file.txt"               Search for "file.txt" in current directory.
+find /home/user/ -iname "File.txt"    Case-insensitive search in /home/user/.
+find . -name "*.txt"                  Find all .txt files.
+find . -name "log*"                   Find files starting with "log".
+find . -type d -name "log*"           Find directories starting with "log".
+find [path] -type f                   Find all files (not directories) under path.
+find [path] -mtime -7                 Files modified in last 7 days.
+find . -mtime +10                    Files modified over 10 days ago.
+find . -mmin -30                     Files modified in last 30 minutes.
+find [path] -type f -empty            Find empty files.
+find [path] -type d -empty            Find empty directories.
+find [path] -name "*txt" -delete      Delete .txt files in path.
+
+# Search by Size
+find [path] -size +1G               Files larger than 1 GB.
+find [path] -size +500k             Files larger than 500 KB.
+find [path] -size +5M               Files larger than 5 MB.
+find [path] -size -5M               Files smaller than 5 MB.
+find . -type f -size -5M            Files only (not directories), under 5 MB.
+
+# Advanced Use
+find . -type f -name "*.txt" \| xargs grep "example"  
+                                  Find .txt files and grep for "example" inside.
 
 
 
 
 ### Manage Users & Permissions
-Ownership Management
-| ------------------------------- | --------------------------------------------------- |
+
 sudo chown fgarcia access.txt			Now, fgarcia owns the file access.txt.
 sudo chown :security access.txt			file belongs to group security. The ':' tells Linux it's a group, not a user.
 sudo chown fgarcia:security access.txt		Now fgarcia is the owner, and security is the group.
@@ -115,176 +107,182 @@ sudo chown -R fgarcia:security /home/fgarcia	Changes ownership for the whole fol
 
 
 👤 User & Group Management
+
 Authentication
-| Command         | Description                       |
-| --------------- | --------------------------------- |
-| `su`            | Switch to root user.              |
-| `su [username]` | Switch to another user.           |
-| `exit`          | Return to your original user.     |
-| `sudo`          | Temporarily gain elevated access. |
-| `passwd`        | Change your password.             |
+su                  Switch to root user.
+su [username]       Switch to another user.
+exit                Return to original user.
+sudo                Temporarily gain elevated access.
+passwd              Change your password.
 
 User Management
-| Command                  | Description                               |
-| ------------------------ | ----------------------------------------- |
-| `sudo useradd [user]`    | Adds new user. only root / sudo previlige can add 
-| `sudo userdel [user]`    | Deletes user (not files).                 |
-| `sudo userdel -r [user]` | Deletes user and their home directory.    |
-| `sudo passwd Ali`        | Sets password for Ali.                    |
-| `groups [username]`      | Lists user's groups.                      |
-| `getent group logadmin`  | Shows details if `logadmin` group exists. |
+sudo useradd [user]           Add new user (root/sudo required).
+sudo userdel [user]           Delete user (files remain).
+sudo userdel -r [user]        Delete user and home directory.
+sudo passwd Ali               Set password for Ali.
+groups [username]             List groups user belongs to.
+getent group [groupname]      Show group details if exists.
 
 Group Assignments
-| Command                                       | Description                               |
-| --------------------------------------------- | ----------------------------------------- |
-| `sudo useradd -g group1 Ali`                  | Sets `group1` as Ali's primary group.     |
-| `sudo useradd -G group2,group3 Ali`           | Adds Ali to secondary groups.             |
-| `sudo useradd -g group1 -G group2,group3 Ali` | Sets primary + multiple secondary groups. |
-| `sudo useradd -g [group] [user]`              | Assigns primary group to new user.        |
-|  sudo useradd -G [group1],[group2] [user_name]| adds user to secondary groups, These are additional groups 
-						the user can access but don’t automatically apply to the files they create.
+sudo useradd -g group1 Ali                Set primary group of Ali.
+sudo useradd -G group2,group3 Ali         Add Ali to secondary groups.
+sudo useradd -g group1 -G group2,group3 Ali  Set primary + secondary groups.
+sudo useradd -g [group] [user]             Assign primary group to new user.
+sudo useradd -G [group1],[group2] [user]   Add user to multiple secondary groups.
 
 Modify User (usermod)
-| Command                           | Description                                 |
-| --------------------------------- | ------------------------------------------- |
-| `sudo usermod -g newgroup user`   | Changes user from primary group to an other group.
-| `sudo usermod -a -G group user`   | Add to supplemental group		       	  |
-| `sudo usermod -a -G g1,g2 user`   | Adds the user to secondary groups without removing any other groups he’s in already.
-| `sudo usermod -d /new/home user`  | Changes user's home directory of a user	  |
-| `sudo usermod -l newname oldname` | Renames the user.                           |
-| `sudo usermod -l new user`        | Change login name 		          |
-| `sudo usermod -L user`            | 🔐 Locks the user's account so they can't log in.
-| `sudo usermod -G group user`     | Replace supplemental groups     |
-
-
+sudo usermod -g newgroup user            Change user's primary group.
+sudo usermod -a -G group user            Add user to supplemental group.
+sudo usermod -a -G g1,g2 user            Add user to multiple secondary groups.
+sudo usermod -d /new/home user            Change user's home directory.
+sudo usermod -l newname oldname           Rename user login.
+sudo usermod -L user                      Lock user account.
+sudo usermod -G group user                Replace supplemental groups.
 
 --------------------------------------------------------------------------------
 
-| Command                          | Description                     |
-| -------------------------------- | ------------------------------- |
-| chmod [permissions] [file]	   | chmod u+rwx,g+rwx,o+rwx login_sessions.txt  → Givs all permissions to everyone for that file.
-| chmod [permission] [file or d]   | chmod u-rwz,g-rwx,o-rwx login_session.txt    takes back all permission from use,group,other
-| chmod o-rwx file.txt		   | Note: u can use them for one singel permissin  too 
-| `chmod u=r,g=r,o=r file`         | Set read-only for all           |
-|  chown			   | used to change who owns a file or folder — either the user, the group, or both.
-| `chown user file`                | Change file owner               |
-| `chown :group file`              | Change file group               |
-| `sudo groupdel group`            | Delete group                    |
-|  groups [username]		| itshows all the groups that a user belongs to, including both their primary group and any secondary groups
-|  getent [group_name] logadmin	   | Checks if the group logamin exist & shows its details.
+File Permissions & Ownership
 
-
-
-
-
-### Get Help
-
-| -------------------- | --------------------------- |
-| `apropos keyword`    | finds commands related to a keyword.
-| `apropos -a kw1 kw2` | Match all keywords          |
-|  apropos user | grep add | grep create	     filters commands related to "user" that also have both "add" and "create" in them.
-|  apropos user | grep -i login			     -i makes it case-insensitive, shows both"login","Login"
-| -a    | apropos -a user add			     Finds commands that match both words: "user" and "add"
-| -e    | apropos -e user			     Shows exact match only (no partial word matches)
-| `whatis [COMMAND]`  | Shows a brief description of the command.                                |
-| `man [COMMAND]`     | Shows manual with all details and filters. ENTER: next line, SPACE: page |
-| `type [COMMAND]`    | Shows type: alias, binary, shell builtin, etc.                           |
-| `whereis [COMMAND]` | Locates binary, source, and man page of a command.                       |
-
-
-
-
-
-
-
-
-
+chmod [permissions] [file]                 Set file permissions (e.g. chmod u+rwx,g+rwx,o+rwx file).
+chmod o-rwx file.txt                       Remove all permissions for others.
+chmod u=r,g=r,o=r file                     Set read-only for all.
+chown user file                           Change file owner.
+chown :group file                         Change file group.
+sudo groupdel group                       Delete a group.
+groups [username]                         Show groups user belongs to.
+getent group [groupname]                   Show group details.
 
 --------------------------------------------------------------------------------
 
-| Command                          | Description                     |
-| -------------------------------- | ------------------------------- |
+Help & Documentation
 
-hostname				to learn machine name
-uname					to learn my name user name 
-curl OR wget [ download link] 		to download files from internt via command line
+apropos keyword                 Find commands related to a keyword.
+apropos -a kw1 kw2              Match all keywords.
+apropos user | grep add | grep create    Filter commands related to "user" with "add" and "create".
+apropos user | grep -i login                 Case-insensitive grep for login.
+-a                             Match both keywords.
+-e                             Exact match only.
+whatis [COMMAND]               Show brief description.
+man [COMMAND]                  Show detailed manual.
+type [COMMAND]                 Show command type (alias, builtin, binary).
+whereis [COMMAND]              Locate binary, source, and man page.
+
+--------------------------------------------------------------------------------
+
+Basic Linux Commands
+
+hostname                      Show machine hostname.
+uname                         Show system info.
+date                         Show current date.
+cal                          Show calendar.
+uptime                       Show system uptime, load, users.
+neofetch                     Show system info with visuals.
+finger [username]             Show user login info.
+figlet Hello                 Display big ASCII text.
+bc                           Basic calculator.
+leafpad filename.txt          Simple text editor.
+
+--------------------------------------------------------------------------------
+
+File & Directory Operations
+
+cat file                     Show entire file content.
+head file                    Show first 10 lines.
+head -n 5 file               Show first 5 lines.
+less file                    Scrollable file viewer.
+tail file                    Show last 10 lines.
+tail -n 5 file               Show last 5 lines.
+echo "txt" > f.txt          Overwrite file (clear content).
+echo "txt" >> f.txt         Append to file.
+cat > [file]                Overwrite file and write new text.
+
+cp src dest                 Copy file or directory.
+cp [file or dir] [/directory]   Copy to new location.
+mkdir name                  Create new directory.
+mkdir -p /path/to/dir       Create directory with parents if needed.
+mv src dest                 Move or rename file/directory.
+rm file                    Delete file.
+rm -r [dir]                Recursively delete directory and contents.
+rm -rf [dir]               Force delete directory without prompt.
+rmdir dir                  Delete empty directory.
+touch file                 Create empty file.
+nano file                  Edit or create file with nano editor.
+
+--------------------------------------------------------------------------------
+
+Archive & Compression
+
+zip file.zip file.txt         Compress file.
+unzip file.zip                Extract archive.
+zip folder.zip -r foldername/ Compress folder recursively.
+unzip file.zip -d /path/to/folder Extract archive to folder.
+sudo apt install zip unzip    Install zip/unzip if missing.
+
+--------------------------------------------------------------------------------
+
+System Power Commands
+
+sudo shutdown now             Shutdown immediately.
+sudo shutdown +5              Shutdown after 5 minutes.
+sudo shutdown 22:30           Shutdown at specified time.
+sudo shutdown -r now          Restart immediately.
+sudo shutdown -c              Cancel scheduled shutdown.
+
+--------------------------------------------------------------------------------
+
+Network Commands
+
+ifconfig                      Show network interfaces and IPs.
+ifconfig -a                   Show all interfaces including inactive.
+sudo ifconfig eth0 up         Activate interface.
+sudo ifconfig eth0 down       Deactivate interface.
+ifconfig eth0 192.168.1.10 netmask 255.255.255.0 Assign IP and subnet.
+
+ip addr                      Show all IP addresses and interfaces.
+ping <ip/domain>             Test host connectivity.
+traceroute <ip/domain>       Show packet route.
+arp-scan --localnet          Scan local network devices.
+netdiscover                  Discover live hosts on LAN.
+nmap <ip>/24                 Scan subnet for hosts and ports.
+dnsenum <domain>             Perform DNS enumeration.
+searchsploit <tool/vuln>     Search Exploit-DB.
+cewl <url> -w wordlist.txt   Create custom wordlist.
+setoolkit                    Launch Social-Engineer Toolkit.
 
 
-zip file.zip file.txt			to zip a file
-unzip file.zip				to unzip file
 
-zip folder.zip -r foldername/		to zip a folder   (-r: zip folder recursively)
-unzip file.zip -d /path/to/folder	
-# ✅ Install it if missing		sudo apt install zip unzip
+Reset 			Clears terminal screen and fixes display issues.
+clear			to clear terminal 
+Ctrl + L		Clear screen (same as ‘clear’ command)
 
+Ctrl + A		Move to line start (cursor to beginning)
+Ctrl + E		Move to line end (cursor to end)
+Ctrl + B		Move backward (one character)
+Ctrl + F		Move forward (one character)
+Ctrl + H		Backspace (delete one character before cursor)
+Ctrl + W		Delete previous word (remove word before cursor)
+Ctrl + U		Erase line (from cursor to beginning)
+Ctrl + K		Kill line (from cursor to end)
+Ctrl + Y		Paste last cut text (from Ctrl+U/K/W)
+Ctrl + T		Swap letters (swap last two before cursor)
 
-leafpad filename.txt			its text editor for Linux, like Notepad in Windows.
+Ctrl + C		Cancel command (stop process)
+Ctrl + Z		Suspend process (pause current command)
+Ctrl + D		End of input (logout/close terminal)
 
+Ctrl + N		Next command (from history)
+Ctrl + P		Previous command (from history)
+Ctrl + R		Reverse search (search command history)
+Ctrl + G		Cancel search (exit reverse search)
 
+Ctrl + S		Stop output (freeze terminal output)
+Ctrl + Q		Resume output (if terminal frozen)
 
-date					tp see date
-cal					to see calendar
-uptime 				shows how long the system has been on, plus load and users
-
-neofetch			displays system informaitons | as in windows  pc properties
-finger [username]		See who is logged in,last login time, Check home directory
-figlet Hello			makes big text banners in the terminal using ASCII art
-
-bc				basic calculator | 1+2 Enter # 3
-
-
-
-
-
-git clone <repository-url>	
-# Example:  git clone https://github.com/cowrie/cowrie.git
-[  Go to the tool folder or etc folder on GitHub,Click the Code button (usually green) on that page, You see a URL starting with https:// — copy that URL
-Use in terminal:  git clone <copied-https-url>
-
-
+Ctrl + X		Prefix command (Emacs-style shortcuts)
+Ctrl + J		New line (acts like Enter)
 
 
 
-
-
-
-| Command                | Description                |
-| ---------------------- | -------------------------- |
-| `sudo shutdown now`    | Shutdown immediately.      |
-| `sudo shutdown +5`     | Shutdown after 5 minutes.  |
-| `sudo shutdown 22:30`  | Shutdown at 10:30 PM.      |
-| `sudo shutdown -r now` | Restart immediately.       |
-| `sudo shutdown -c`     | Cancel scheduled shutdown. |
-
-
-
-
-
-
-| Command                                            | Description                             |
-| -------------------------------------------------- | --------------------------------------- |
-| `ifconfig`                                         | Shows network interfaces and their IPs. |
-| `ifconfig -a`                                      | Displays all interfaces, even inactive. |
-| `sudo ifconfig eth0 up`                            | Activates interface `eth0`.             |
-| `sudo ifconfig eth0 down`                          | Deactivates interface `eth0`.           |
-| `ifconfig eth0 192.168.1.10 netmask 255.255.255.0` | Assigns IP and subnet to `eth0`.        |
-
-
-
-
-
-| Command                      | Description                                                            
-| -----------------------------| --------------------------------------
-| `ip addr`                    | Shows all IP addresses and network interfaces.                         |
-| `ping <ip/domain>`           | Sends test packets to check if a host is reachable.                    |
-| `traceroute <ip/domain>`     | Shows the path packets take to reach a host.                           |
-| `arp-scan --localnet`        | Scans your local network for active devices using ARP.                 |
-| `netdiscover`                | Discovers live hosts on the local network using ARP requests.          |
-| `nmap <ip>/24`               | Scans entire subnet for open ports and hosts.                          |
-| `dnsenum <domain>`           | Performs DNS information gathering (NS, MX, subdomains).               |
-| `searchsploit <tool/vuln>`   | Searches Exploit-DB for public exploits related to a term or software. |
-| `cewl <url> -w wordlist.txt` | Creates a custom wordlist from a target website.                       |
-| `setoolkit`                  | Launches the Social-Engineer Toolkit (phishing, cloning, etc.).        
 
 
 
