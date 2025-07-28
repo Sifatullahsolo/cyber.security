@@ -18,6 +18,8 @@ ls -la                     Long format + hidden files.
 ls -d */                   Show only directories in current directory.
 pwd                        Print current directory.
 whoami                     Show current user name.
+q                       exits the manual viewer (less).
+
 
 ls -l                      Sorts files by name.
 ls -lS                     Sorts by size (largest first).
@@ -57,8 +59,7 @@ rmdir dir               Delete empty directory.
 touch file              Create empty file.
 rm -r [dir]             Recursively delete directory and contents.
 rm -rf [dir]            Force delete directory without prompts.
-
-
+Alt + *                 Show files/folders in current dir
 
 
 
@@ -104,6 +105,9 @@ sudo chown fgarcia access.txt			Now, fgarcia owns the file access.txt.
 sudo chown :security access.txt			file belongs to group security. The ':' tells Linux it's a group, not a user.
 sudo chown fgarcia:security access.txt		Now fgarcia is the owner, and security is the group.
 sudo chown -R fgarcia:security /home/fgarcia	Changes ownership for the whole folder and its contents.
+~ + TAB TAB           List all Linux users
+
+
 
 
 👤 User & Group Management
@@ -139,7 +143,9 @@ sudo usermod -l newname oldname           Rename user login.
 sudo usermod -L user                      Lock user account.
 sudo usermod -G group user                Replace supplemental groups.
 
---------------------------------------------------------------------------------
+
+
+
 
 File Permissions & Ownership
 
@@ -152,7 +158,8 @@ sudo groupdel group                       Delete a group.
 groups [username]                         Show groups user belongs to.
 getent group [groupname]                   Show group details.
 
---------------------------------------------------------------------------------
+
+
 
 Help & Documentation
 
@@ -164,10 +171,12 @@ apropos user | grep -i login                 Case-insensitive grep for login.
 -e                             Exact match only.
 whatis [COMMAND]               Show brief description.
 man [COMMAND]                  Show detailed manual.
+info [COMMAND]                 Displays more detailed manuals than man
 type [COMMAND]                 Show command type (alias, builtin, binary).
 whereis [COMMAND]              Locate binary, source, and man page.
+ 
 
---------------------------------------------------------------------------------
+
 
 Basic Linux Commands
 
@@ -180,9 +189,9 @@ neofetch                     Show system info with visuals.
 finger [username]             Show user login info.
 figlet Hello                 Display big ASCII text.
 bc                           Basic calculator.
-leafpad filename.txt          Simple text editor.
+leafpad filename.txt         Simple text editor. Note
 
---------------------------------------------------------------------------------
+
 
 File & Directory Operations
 
@@ -208,7 +217,7 @@ rmdir dir                  Delete empty directory.
 touch file                 Create empty file.
 nano file                  Edit or create file with nano editor.
 
---------------------------------------------------------------------------------
+
 
 Archive & Compression
 
@@ -218,7 +227,8 @@ zip folder.zip -r foldername/ Compress folder recursively.
 unzip file.zip -d /path/to/folder Extract archive to folder.
 sudo apt install zip unzip    Install zip/unzip if missing.
 
---------------------------------------------------------------------------------
+
+
 
 System Power Commands
 
@@ -282,8 +292,11 @@ Ctrl + X		Prefix command (Emacs-style shortcuts)
 Ctrl + J		New line (acts like Enter)
 
 
+Alt + .     Reuse last argument
 
-
+!!          Run last command again
+!$          Use last argument of previous command
+!x          Run last command starting with 'x'
 
 
 
