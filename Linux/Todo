@@ -1,0 +1,116 @@
+Todo 
+
+
+
+1. Master Linux Fundamentals
+
+File System Hierarchy (/bin, /etc, /var, /home, /root)
+
+User & Permission Management (chmod, chown, sudo, su, adduser)
+
+Process Management (ps, top, htop, kill, systemctl)
+
+Networking Commands (ifconfig, ip, netstat, ss, nmap, tcpdump)
+
+Package Management (apt, yum, dnf, pip)
+
+Bash Scripting (Automation, cron jobs, aliases)
+
+Practice Exercises
+✔ Create a user and assign sudo privileges
+✔ Modify file permissions (chmod 600, chown)
+✔ Schedule a task with cron
+✔ Write a basic Bash script to automate log cleanup
+
+
+
+
+
+2. Learn Security Hardening
+Key Areas to Secure
+SSH Security (Disable root login, use key-based auth)
+
+Firewall Setup (ufw, iptables, firewalld)
+
+SELinux/AppArmor (Mandatory Access Control)
+
+Log Monitoring (journalctl, logrotate, /var/log/)
+
+Kernel Hardening (sysctl settings, grub security)
+
+Practice Exercises
+✔ Harden SSH by editing /etc/ssh/sshd_config
+✔ Block a suspicious IP using iptables
+✔ Set up fail2ban to prevent brute-force attacks
+
+3. Use Cybersecurity Tools
+Must-Know Tools
+Category	Tools
+Scanning	nmap, masscan, nikto, OpenVAS
+Exploitation	Metasploit, sqlmap, Burp Suite
+Forensics	Autopsy, Volatility, Wireshark
+Password Cracking	John the Ripper, hashcat
+Network Analysis	tcpdump, tshark, Zeek
+Practice Exercises
+✔ Scan a target with nmap -A -T4 <IP>
+✔ Crack a password hash using john --format=sha256 hashes.txt
+✔ Analyze a PCAP file in Wireshark
+
+4. Set Up a Cybersecurity Lab
+Recommended Lab Environments
+Virtualization: VirtualBox, VMware, KVM
+
+Penetration Testing OS: Kali Linux, Parrot OS
+
+Vulnerable Machines: Metasploitable, DVWA, OWASP Juice Shop
+
+Lab Exercises
+✔ Install Kali Linux in a VM
+✔ Exploit Metasploitable using msfconsole
+✔ Perform a CTF challenge on Hack The Box
+
+5. Learn Scripting & Automation
+Languages to Learn
+Bash (Linux automation)
+
+Python (Exploit development, tool scripting)
+
+PowerShell (Windows security)
+
+Practice Exercises
+✔ Write a Python script to scan open ports
+✔ Automate log analysis with Bash
+
+6. Engage in Real-World Practice
+Platforms for Hands-On Learning
+Hack The Box (HTB)
+
+TryHackMe
+
+OverTheWire (Bandit)
+
+VulnHub
+
+Certifications to Consider
+CompTIA Linux+
+
+OSCP (Offensive Security Certified Professional)
+
+eJPT (Junior Penetration Tester)
+
+7. Stay Updated
+Follow cybersecurity blogs (KrebsOnSecurity, The Hacker News)
+
+Join communities (Reddit r/netsec, Discord hacking groups)
+
+Watch YouTube channels (Null Byte, The Cyber Mentor)
+
+Final Checklist
+✅ Learn Linux basics (commands, permissions, networking)
+✅ Harden a Linux system (SSH, firewall, logs)
+✅ Practice with security tools (Metasploit, Wireshark, John)
+✅ Set up a hacking lab (Kali + Metasploitable)
+✅ Solve CTF challenges (HTB, TryHackMe)
+✅ Automate tasks with Bash/Python
+
+🚀 Consistent practice is key! Start with basics, then move to advanced exploits and defense techniques.
