@@ -3,20 +3,24 @@
 
 ### Navigate the File System
 
-cd                         Change directory.
+cd                         Change directory. ( c = change, d= directory) 
 cd /                       Go to root directory.
-cd ~                       Navigate to home directory.
+cd /home                   brings u to user home dir
+cd ~                       Navigate to home directory for the user 
 cd "reports"               Go to 'reports' subdirectory.
 cd /home/analyst/reports   Go to full path directory.
+cd -                       moves u to previous location / dir
+cd ../../../               Goes back 3 parent folders from current location.
 cd ..                      Go up one directory.
 ls                         List files and directories.
 ls /                       List content of root directory.
 ls /path                   List files in given path.
 ls -a                      Include hidden files.
+ll                         Lists files with details (permissions, size, date).
 ls -l                      Long format (permissions, size, etc.).
 ls -la                     Long format + hidden files.
 ls -d */                   Show only directories in current directory.
-pwd                        Print current directory.
+pwd                        Print current directory. ( p= print, w= work, d= director)
 whoami                     Show current user name.
 q                       exits the manual viewer (less).
 
@@ -31,6 +35,12 @@ ls | grep ".txt"           Lists all .txt files.
 
 ### Read Files
 cat file             Show all content of file.
+more [filename]      View file content screen by screen; space = next page, q = quit.
+more -10 [filename]  to see only first 10 lines of file
+more +100 [filename]  to see from 100th line 
+more +100 -5 [filename]  Literal: Start showing file from line 100, display 5 lines at a time. 
+more -5 +/Romeo [filName] #showing file from line containing "Romeo," display 5 lines at a time.
+more -s [filename]   Shows file pages, replacing multiple blank lines with a single blank line.
 head file            Show first 10 lines.
 head -n 5 file       Show first 5 lines.
 less file            Scrollable file viewer.
@@ -43,23 +53,122 @@ cat > [file]         Overwrite file and lets you write new text.
 
 
 ### Manage File System
-cp src dest             Copy file/directory.
-cp [file or dir] [/directory]   Copies file or directory to new location.
+tree                    Shows folders and files in a directory as a tree layout.
+cp file.txt /home/user/    #Copy file/directory.
+cp [file or dir] [/directory]       # Copies file or directory to new location.
 mkdir name              Make new directory.
 mkdir [path] [directory name]  Create new directory in specified location.
+mkdir 2/3/4 -p          creating nested folders.
 -p                      mkdir -p /path/to/dir/   Creates parent directories if they don’t exist.
 mv src dest             Move or rename file/directory.
 mv [file name] [/directory]    Moves file/directory to new location.
 mv [oldname] [newname]          Rename file/directory.
-nano file               Edit/create file in nano editor.
-nano [file name in dir]  Edit file in new terminal window.
-nano [new file name]     Create new file in current dir & open editor.
+leafpad filename.txt         Simple text editor. Note
+
 rm file                 Delete file.
 rmdir dir               Delete empty directory.
 touch file              Create empty file.
+echo > newfile.txt      To create a new file
+cat > newfile.txt       To create a new file ( it will ask u to write text, CTRL + D to exit. 
 rm -r [dir]             Recursively delete directory and contents.
 rm -rf [dir]            Force delete directory without prompts.
 Alt + *                 Show files/folders in current dir
+
+
+
+
+
+
+NANO COMMAND  ##############################3
+
+nano file               Edit/create file in nano editor.
+nano [file name in dir]  Edit file in new terminal window.
+nano [new file name]     Create new file in current dir & open editor.
+Ctrl+S     Save current file  
+Ctrl+O     Offer to write file ("Save as")  
+Ctrl+R     Insert a file into current one  
+Ctrl+X     Close buffer, exit from nano  
+
+Ctrl+K     Cut current line into cutbuffer  
+Alt+6      Copy current line into cutbuffer  
+Ctrl+U     Paste contents of cutbuffer  
+Alt+T      Cut until end of buffer  
+Ctrl+]     Complete current word  
+Alt+3      Comment/uncomment line/region  
+Alt+U      Undo last action  
+Alt+E      Redo last undone action  
+
+Ctrl+Q     Start backward search  
+Ctrl+W     Start forward search  
+Alt+Q      Find next occurrence backward  
+Alt+W      Find next occurrence forward  
+Alt+R      Start a replacing session  
+
+Ctrl+H     Delete character before cursor  
+Ctrl+D     Delete character under cursor  
+Alt+Backspace Delete word to the left  
+Ctrl+Del   Delete word to the right  
+Alt+Del    Delete current line  
+
+Ctrl+T     Execute some command  
+Ctrl+J     Justify paragraph or region  
+Alt+J      Justify entire buffer  
+Alt+B      Run a syntax check  
+Alt+F      Run a formatter/fixer/arranger  
+Alt+:      Start/stop recording of macro  
+Alt+;      Replay macro  
+
+Ctrl+B     One character backward  
+Ctrl+F     One character forward  
+Ctrl+←     One word backward  
+Ctrl+→     One word forward  
+Ctrl+A     To start of line  
+Ctrl+E     To end of line  
+Ctrl+P     One line up  
+Ctrl+N     One line down  
+Ctrl+↑     To previous block  
+Ctrl+↓     To next block  
+Ctrl+Y     One page up  
+Ctrl+V     One page down  
+Alt+\      To top of buffer  
+Alt+/      To end of buffer  
+
+Alt+G      Go to specified line  
+Alt+]      Go to complementary bracket  
+Alt+↑      Scroll viewport up  
+Alt+↓      Scroll viewport down  
+Alt+<      Switch to preceding buffer  
+Alt+>      Switch to succeeding buffer  
+
+Ctrl+C     Report cursor position  
+Alt+D      Report line/word/character count  
+Ctrl+G     Display help text  
+
+Alt+A      Turn the mark on/off  
+Tab        Indent marked region  
+Shift+Tab  Unindent marked region  
+Alt+V      Enter next keystroke verbatim  
+Alt+N      Turn line numbers on/off  
+Alt+P      Turn visible whitespace on/off  
+Alt+X      Hide or unhide the help lines  
+Ctrl+L     Refresh the screen  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -172,6 +281,7 @@ apropos user | grep -i login                 Case-insensitive grep for login.
 whatis [COMMAND]               Show brief description.
 man [COMMAND]                  Show detailed manual.
 info [COMMAND]                 Displays more detailed manuals than man
+[command] --help               Show help for the command
 type [COMMAND]                 Show command type (alias, builtin, binary).
 whereis [COMMAND]              Locate binary, source, and man page.
  
@@ -189,7 +299,6 @@ neofetch                     Show system info with visuals.
 finger [username]             Show user login info.
 figlet Hello                 Display big ASCII text.
 bc                           Basic calculator.
-leafpad filename.txt         Simple text editor. Note
 
 
 
@@ -206,14 +315,21 @@ echo "txt" >> f.txt         Append to file.
 cat > [file]                Overwrite file and write new text.
 
 cp src dest                 Copy file or directory.
+cp new* 2/                  copy any file / dir having word new with them to dir 2 
 cp [file or dir] [/directory]   Copy to new location.
 mkdir name                  Create new directory.
-mkdir -p /path/to/dir       Create directory with parents if needed.
-mv src dest                 Move or rename file/directory.
+mkdir /directory1           Creates folder in root directory / not in current directory.
+mkdir FOLDER1 FOLDER2 FOLDER3    # 3 folder will be created ( u can create more ) 
+mkdir -p /path/to/dir      Create directory with parents if needed.
+mv src dest                Move or rename file/directory.
+rm --help                  to check what all comands under rm
+😳rm -rf /😳VERY DANGEROUS  Deletes everything on the system—very dangerous, can break your OS
 rm file                    Delete file.
 rm -r [dir]                Recursively delete directory and contents.
 rm -rf [dir]               Force delete directory without prompt.
 rmdir dir                  Delete empty directory.
+rm f* -r                   Deletes files/folders that begin with "f" (e.g., file.txt, folder/).
+rm * -r                    Deletes everything in the current directory and its subdirectories
 touch file                 Create empty file.
 nano file                  Edit or create file with nano editor.
 
