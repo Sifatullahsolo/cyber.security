@@ -418,3 +418,63 @@ Alt + .     Reuse last argument
 
 
 
+
+
+
+
+vim                It's the default text editor in Linux. Below are essential Vim commands:
+
+--- Movement ---
+h, j, k, l         Move: Left, Down, Up, Right (←↓↑→)  
+w / b / e          Move: Next word / Back word / End of word  
+0 / $ / ^          Move: Start of line / End of line / First non-blank  
+gg / G             Move: Top of file (gg) / Bottom of file (G)  
+H / M / L          Move: Top / Middle / Bottom of screen  
+
+--- Insert Mode ---
+i / a              Insert: Before cursor (i) / After cursor (a)  
+I / A              Insert: Start of line (I) / End of line (A)  
+o / O              Insert: New line below (o) / New line above (O)  
+Esc / Ctrl+[       Exit insert mode (return to normal mode)  
+
+--- Delete & Change ---
+x / X              Delete: Char under cursor (x) / Char before cursor (X)  
+dd / d$ / D        Delete: Whole line (dd) / To end of line (d$ or D)  
+dw / d0            Delete: Word (dw) / To start of line (d0)  
+cw / cc            Change: Word (cw) / Whole line (cc)  
+
+--- Copy & Paste ---
+yy / Y             Copy (yank) current line  
+p / P              Paste: After (p) / Before (P) cursor  
+v / V              Visual mode: Select by character (v) / by line (V)  
+y / d              In visual mode: Copy (y) / Delete (d) selected text  
+
+--- Undo & Repeat ---
+u / Ctrl+r         Undo last action (u) / Redo (Ctrl + r)  
+.                  Repeat last command  
+
+--- Search ---
+/word              Search forward for "word"  
+?word              Search backward for "word"  
+n / N              Jump to next (n) / previous (N) match  
+
+--- Save & Quit ---
+:w                 Save file  
+:q                 Quit (if no changes)  
+:q!                Quit WITHOUT saving  
+:wq or ZZ          Save AND quit  
+
+--- Extra Useful ---
+J                  Join current line with next  
+>> / <<            Indent / Un-indent line  
+:%s/old/new/g      Replace all "old" with "new" in file  
+:set number        Show line numbers  
+:set nonumber      Hide line numbers  
+:syntax on         Enable syntax highlighting  
+:help [command]    Get help on any command (e.g., :help w)  
+
+
+
+
+
+
