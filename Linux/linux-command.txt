@@ -1,6 +1,27 @@
 #Linux Command Cheat Sheet
 
 
+
+
+
+Help & Documentation
+
+apropos keyword                 Find commands related to a keyword.
+apropos -a kw1 kw2              Match all keywords.
+apropos user | grep add | grep create    Filter commands related to "user" with "add" and "create".
+apropos user | grep -i login                 Case-insensitive grep for login.
+-a                             Match both keywords.
+-e                             Exact match only.
+whatis [COMMAND]               Show brief description.
+man [COMMAND]                  Show detailed manual.
+info [COMMAND]                 Displays more detailed manuals than man
+[command] --help               Show help for the command
+type [COMMAND]                 Show command type (alias, builtin, binary).
+whereis [COMMAND]              Locate binary, source, and man page.
+
+
+
+
 ### Navigate the File System
 
 cd                         Change directory. ( c = change, d= directory) 
@@ -270,20 +291,6 @@ getent group [groupname]                   Show group details.
 
 
 
-Help & Documentation
-
-apropos keyword                 Find commands related to a keyword.
-apropos -a kw1 kw2              Match all keywords.
-apropos user | grep add | grep create    Filter commands related to "user" with "add" and "create".
-apropos user | grep -i login                 Case-insensitive grep for login.
--a                             Match both keywords.
--e                             Exact match only.
-whatis [COMMAND]               Show brief description.
-man [COMMAND]                  Show detailed manual.
-info [COMMAND]                 Displays more detailed manuals than man
-[command] --help               Show help for the command
-type [COMMAND]                 Show command type (alias, builtin, binary).
-whereis [COMMAND]              Locate binary, source, and man page.
  
 
 
@@ -473,6 +480,39 @@ J                  Join current line with next
 :syntax on         Enable syntax highlighting  
 :help [command]    Get help on any command (e.g., :help w)  
 
+
+
+
+
+
+
+
+
+df Command – Disk Space Usage
+
+df                  Show disk space in 1KB blocks (basic output)  
+df -h               Human-readable (KB, MB, GB, TB)  
+df -T               Show filesystem type (e.g., ext4, tmpfs)  
+df -Th              Human-readable + filesystem type  
+df -i               Show inode usage (not disk space)  
+df -ih              Human-readable inode usage  
+df --total          Add summary line for totals  
+df -x tmpfs         Exclude tmpfs filesystems  
+df /home            Check space for a specific directory/partition  
+
+
+
+
+
+du                 Check File/Directory Sizes
+du --help or check with man du and its all component
+
+
+tar                 A Linux tool for archiving (.tar) and compressing files.
+tar --help
+
+
+zip    also check zip --help    Compress Files/Directories
 
 
 
