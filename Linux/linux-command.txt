@@ -2,22 +2,36 @@
 
 
 
+📘 Help & Documentation - Master Linux by Knowing How to Ask
+
+--- 🔍 Find Commands by Keyword ---
+apropos keyword                  # Find commands related to keyword (search man pages)
+apropos -a kw1 kw2               # Match ALL keywords (AND search)
+apropos -e exactword             # Exact match only (no partial matches)
+
+--- 🎯 Filter Search Results ---
+apropos user | grep add          # Find "user" + filter lines containing "add"
+apropos user | grep -i login     # Case-insensitive search for "login"
+apropos user | grep -iE "add|create"  # Match multiple words (OR logic)
+
+--- 📖 Know What a Command Does ---
+whatis [command]                 # One-line description of the command
+man [command]                    # Open manual page (q = quit, / = search)
+man -k keyword                   # Same as apropos (search in man descriptions)
+man -f command                   # Same as whatis
+
+--- 📚 Advanced Manuals ---
+info [command]                   # Read more detailed manual (navigate: space, q)
+[command] --help                 # Show built-in help/options for the command
+help [bash_builtin]             # Help for shell built-ins like cd, echo, etc.
+
+--- 📍 Find the Command Itself ---
+type [command]                   # See if it's alias, shell builtin, or file  
+whereis [command]                # Show path of binary, source, and man page  
+which [command]                 # Show full path of the command binary (from $PATH)  
+command -V [command]             # Same as type, more detailed
 
 
-Help & Documentation
-
-apropos keyword                 Find commands related to a keyword.
-apropos -a kw1 kw2              Match all keywords.
-apropos user | grep add | grep create    Filter commands related to "user" with "add" and "create".
-apropos user | grep -i login                 Case-insensitive grep for login.
--a                             Match both keywords.
--e                             Exact match only.
-whatis [COMMAND]               Show brief description.
-man [COMMAND]                  Show detailed manual.
-info [COMMAND]                 Displays more detailed manuals than man
-[command] --help               Show help for the command
-type [COMMAND]                 Show command type (alias, builtin, binary).
-whereis [COMMAND]              Locate binary, source, and man page.
 
 
 
