@@ -1,0 +1,47 @@
+
+
+
+
+
+
+Positive	Alarm says "yes, danger found"
+Negative	Alarm says "no danger found"
+True	Alarm's answer is correct
+False	Alarm's answer is wrong
+
+
+✅ TRUE POSITIVE (TP)
+Alarm rings.
+
+There is a burglar.
+
+✔️ Correct decision.
+
+🔔 "YES burglar" → and really a burglar is there.
+
+❌ FALSE POSITIVE (FP)
+Alarm rings.
+
+But it's just your cat.
+
+❌ Wrong decision.
+
+🔔 "YES burglar" → but actually, no burglar.
+
+✅ TRUE NEGATIVE (TN)
+Alarm doesn't ring.
+
+And your house is safe.
+
+✔️ Correct again.
+
+🔕 "NO burglar" → and yes, there’s no one.
+
+❌ FALSE NEGATIVE (FN)
+Alarm doesn’t ring.
+
+But there is a burglar!
+
+❌ Big mistake.
+
+🔕 "NO burglar" → but a thief is inside!
