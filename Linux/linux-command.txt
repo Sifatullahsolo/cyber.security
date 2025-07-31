@@ -27,8 +27,8 @@ help [bash_builtin]             # Help for shell built-ins like cd, echo, etc.
 
 --- 📍 Find the Command Itself ---
 type [command]                   # See if it's alias, shell builtin, or file  
-whereis [command]                # Show path of binary, source, and man page  
-which [command]                 # Show full path of the command binary (from $PATH)  
+whereis [command]                Shows the path(s) of a command's binary, source, and manual files.
+which [command]                  # Show full path of the command binary (from $PATH)  
 command -V [command]             # Same as type, more detailed
 
 
@@ -56,7 +56,6 @@ ls -l                      Long format (permissions, size, etc.).
 ls -la                     Long format + hidden files.
 ls -d */                   Show only directories in current directory.
 pwd                        Print current directory. ( p= print, w= work, d= director)
-whoami                     Show current user name.
 q                       exits the manual viewer (less).
 
 
@@ -257,8 +256,9 @@ sudo chown -R fgarcia:security /home/fgarcia	Changes ownership for the whole fol
 👤 User & Group Management
 
 Authentication
-su                  Switch to root user.
-su [username]       Switch to another user.
+sudo          ############### Stands for super user do 
+sudo su             Switch to root user.
+su [username]       Switch to another user.  [ su = stands for switch user]
 exit                Return to original user.
 sudo                Temporarily gain elevated access.
 passwd              Change your password.
@@ -267,27 +267,63 @@ User Management
 sudo useradd [user]           Add new user (root/sudo required).
 sudo userdel [user]           Delete user (files remain).
 sudo userdel -r [user]        Delete user and home directory.
-sudo passwd Ali               Set password for Ali.
 groups [username]             List groups user belongs to.
 getent group [groupname]      Show group details if exists.
+last                          Recent logins
+lastlog                       Last login for all users
+logout                        End current session
+cat /etc/group                Lists all groups and their members on the system.
+cat /etc/shadow               Show content of shadow file, contains encrypted passsword & user infos.
+cat /etc/passwd              Displays user account info like usernames, home directories, and shells
+
+
+
+General ########
+users                         Shows list of active users.
+whoami                        Show current user name.
+cut -d: -f1 /etc/passwd       Lists all user accounts on the system.
+groups                        Shows all groups the current user belongs to.
+id                            Shows user ID, group ID, and groups for the current user.
+w                             Shows who is logged in and what they are doing.
+who                           Shows logged-in users with time and terminal info.
+uname                         Shows system info
+ls /home                      Shows all users folders in the /home directory.
+sudo passwd                   Set password for the current user
+sudo passwd [user name]       Set password for other user
+
+
+
+
 
 Group Assignments
+sudo adduser                  # Starts an interactive setup to create a user with password and details
+# useradd                     # Is the default command for adding in linux
 sudo useradd -g group1 Ali                Set primary group of Ali.
 sudo useradd -G group2,group3 Ali         Add Ali to secondary groups.
 sudo useradd -g group1 -G group2,group3 Ali  Set primary + secondary groups.
 sudo useradd -g [group] [user]             Assign primary group to new user.
 sudo useradd -G [group1],[group2] [user]   Add user to multiple secondary groups.
+sudo useradd [user name] -m                To create home directory for the user.
 
-Modify User (usermod)
+
+sudo useradd bigboss -m -d /home/theboss -s /bin/bash
+###  Add user bigboss with custom settings
+-m: Create home directory
+-d /home/theboss: Set custom home
+-s /bin/bash: Set default shell to bash ###
+
+
+
+Change or update an existing's  user account’s settings
+usermod --help
 sudo usermod -g newgroup user            Change user's primary group.
 sudo usermod -a -G group user            Add user to supplemental group.
 sudo usermod -a -G g1,g2 user            Add user to multiple secondary groups.
-sudo usermod -d /new/home user            Change user's home directory.
-sudo usermod -l newname oldname           Rename user login.
-sudo usermod -L user                      Lock user account.
-sudo usermod -G group user                Replace supplemental groups.
-
-
+sudo usermod -d /new/home user           Change/add user's home directory.
+sudo usermod -l newname oldname          Rename user login.
+sudo usermod -L [user name]              Lock user account.
+sudo usermod -U [user name]              Unlocks the user.
+sudo usermod -G group user               Replace supplemental groups.
 
 
 
@@ -445,55 +481,126 @@ Alt + .     Reuse last argument
 
 vim                It's the default text editor in Linux. Below are essential Vim commands:
 
---- Movement ---
-h, j, k, l         Move: Left, Down, Up, Right (←↓↑→)  
-w / b / e          Move: Next word / Back word / End of word  
-0 / $ / ^          Move: Start of line / End of line / First non-blank  
-gg / G             Move: Top of file (gg) / Bottom of file (G)  
-H / M / L          Move: Top / Middle / Bottom of screen  
+Cursor movement (Normal/Visual Mode)
+ 
+h j k l - Arrow keys
+w / b - Next/previous word
+W / B - Next/previous word (space seperated)
+e / ge - Next/previous end of word
+0 / $ - Start/End of line
+ ^ - First non-blank character of line (same as 0w)
 
---- Insert Mode ---
-i / a              Insert: Before cursor (i) / After cursor (a)  
-I / A              Insert: Start of line (I) / End of line (A)  
-o / O              Insert: New line below (o) / New line above (O)  
-Esc / Ctrl+[       Exit insert mode (return to normal mode)  
+Editing text
+ 
+i / a - Start insert mode at/after cursor 
+I / A - Start insert mode at the beginning/end of the line
+o / O - Add blank line below/above current line
+Esc or Ctrl+[ - Exit insert mode
+d - Delete
+dd - Delete line
+c - Delete, then start insert mode
+cc - Delete line, then start insert mode
 
---- Delete & Change ---
-x / X              Delete: Char under cursor (x) / Char before cursor (X)  
-dd / d$ / D        Delete: Whole line (dd) / To end of line (d$ or D)  
-dw / d0            Delete: Word (dw) / To start of line (d0)  
-cw / cc            Change: Word (cw) / Whole line (cc)  
+Operators: Operators also work in Visual Mode
+ 
+d - Deletes from the cursor to the movement location
+c - Deletes from the cursor to the movement location, then starts insert mode
+y - Copy from the cursor to the movement location
+> - Indent one level
+< - Unindent one level
+ 
+You can also combine operators with motions. Ex: d$ deletes from the cursor to the end of the line.
+Marking text (visual mode)
+ 
+v - Start visual mode
+V - Start linewise visual mode
+Ctrl+v - Start visual block mode
+Esc or Ctrl+[ - Exit visual mode
+Clipboard
+yy - Yank (copy) a line
+p - Paste after cursor
+P - Paste before cursor
+dd - Delete (cut) a line
+x - Delete (cut) current character
+X - Delete (cut) previous character
+d / c - By default, these copy the deleted text
+Exiting
+:w - Write (save) the file, but don’t quit
+:wq - Write (save) and quit
+:q - Quit (fails if anything has changed)
+:q! - Quit and throw away changes
+Search/Replace
+/pattern - Search for pattern
+?pattern - Search backward for pattern
+n - Repeat search in same direction
+N - Repeat search in opposite direction
+:%s/old/new/g - Replace all old with new throughout file (gn is better though)
+:%s/old/new/gc - Replace all old with new throughout file with confirmations
+General 
+u - Undo
+Ctrl+r - Redo
 
---- Copy & Paste ---
-yy / Y             Copy (yank) current line  
-p / P              Paste: After (p) / Before (P) cursor  
-v / V              Visual mode: Select by character (v) / by line (V)  
-y / d              In visual mode: Copy (y) / Delete (d) selected text  
+Advanced
 
---- Undo & Repeat ---
-u / Ctrl+r         Undo last action (u) / Redo (Ctrl + r)  
-.                  Repeat last command  
+Cursor movement 
+Ctrl+d - Move down half a page
+Ctrl+u - Move up half a page
+} - Go forward by paragraph (the next blank line)
+{ - Go backward by paragraph (the next blank line)
+gg - Go to the top of the page
+G - Go the bottom of the page
+: [num] [enter] - Go to that line in the document
+ctrl+e / ctrl+y - Scroll down/up one line
 
---- Search ---
-/word              Search forward for "word"  
-?word              Search backward for "word"  
-n / N              Jump to next (n) / previous (N) match  
+Character search
+ 
+f [char] - Move forward to the given char 
+F [char] - Move backward to the given char
+t [char] - Move forward to before the given char
+T [char] - Move backward to before the given char
+; / , - Repeat search forwards/backwards
 
---- Save & Quit ---
-:w                 Save file  
-:q                 Quit (if no changes)  
-:q!                Quit WITHOUT saving  
-:wq or ZZ          Save AND quit  
+Editing text
 
---- Extra Useful ---
-J                  Join current line with next  
->> / <<            Indent / Un-indent line  
-:%s/old/new/g      Replace all "old" with "new" in file  
-:set number        Show line numbers  
-:set nonumber      Hide line numbers  
-:syntax on         Enable syntax highlighting  
-:help [command]    Get help on any command (e.g., :help w)  
+J - Join line below to the current one 
+r [char] - Replace a single character with the specified char (does not use Insert mode)
 
+Visual mode
+ 
+O - Move to other corner of block 
+o - Move to other end of marked area
+
+File Tabs
+ 
+:e filename - Edit a file 
+:tabe - Make a new tab
+gt - Go to the next tab
+gT - Go to the previous tab
+:vsp - Vertically split windows
+ctrl+ws - Split windows horizontally
+ctrl+wv - Split windows vertically
+ctrl+ww - Switch between windows
+ctrl+wq - Quit a window
+
+Marks: Marks allow you to jump to designated points in your code. 
+
+m{a-z} - Set mark {a-z} at cursor position
+A capital mark {A-Z} sets a global mark and will work between files
+'{a-z} - Move the cursor to the start of the line where the mark was set
+'' - Go back to the previous jump location
+
+Text Objects
+ 
+Say you have def (arg1, arg2, arg3), where your cursor is somewhere in the middle of the parenthesis. 
+di( deletes everything between the parenthesis. That says “change everything inside the nearest parenthesis”. Without text objects, you would need to do T(dt).
+ 
+
+General
+ 
+. - Repeat last command 
+Ctrl+r + 0 in insert mode inserts the last yanked text (or in command mode)
+gv - reselect (select last selected block of text, from visual mode)
+% - jumps between matching () or {}
 
 
 
@@ -528,6 +635,102 @@ tar --help
 
 zip    also check zip --help    Compress Files/Directories
 
+
+
+
+
+
+
+
+File handling
+
+Ctrl+S Save current file
+Ctrl+O Offer to write file ("Save as")
+Ctrl+R Insert a file into current one
+Ctrl+X Close buffer, exit from nano
+
+Editing
+
+Ctrl+K Cut current line into cutbuffer
+Alt+6 Copy current line into cutbuffer
+Ctrl+U Paste contents of cutbuffer
+Alt+T Cut until end of buffer
+Ctrl+] Complete current word
+Alt+3 Comment/uncomment line/region
+Alt+U Undo last action
+Alt+E Redo last undone action
+
+
+Search and replace
+
+Ctrl+Q Start backward search
+Ctrl+W Start forward search
+Alt+Q Find next occurrence backward
+Alt+W Find next occurrence forward
+Alt+R Start a replacing session
+
+Deletion
+
+Ctrl+H Delete character before cursor      
+Ctrl+D Delete character under cursor
+Alt+Bsp Delete word to the left
+Ctrl+Del Delete word to the right
+Alt+Del Delete current line
+
+Operations
+
+Ctrl+T Execute some command
+Ctrl+J Justify paragraph or region
+Alt+J Justify entire buffer
+Alt+B Run a syntax check
+Alt+F Run a formatter/fixer/arranger
+Alt+: Start/stop recording of macro
+Alt+; Replay macro
+
+
+Moving around
+
+Ctrl+B One character backward
+Ctrl+F One character forward
+Ctrl+← One word backward
+Ctrl+→ One word forward
+Ctrl+A To start of line
+Ctrl+E To end of line
+Ctrl+P One line up
+Ctrl+N One line down
+Ctrl+↑ To previous block
+Ctrl+↓ To next block
+Ctrl+Y One page up
+Ctrl+V One page down
+Alt+\ To top of buffer
+Alt+/ To end of buffer
+
+
+Special movement
+
+Alt+G Go to specified line
+Alt+] Go to complementary bracket
+Alt+↑ Scroll viewport up
+Alt+↓ Scroll viewport down
+Alt+< Switch to preceding buffer
+Alt+> Switch to succeeding buffer
+
+
+Information
+
+Ctrl+C Report cursor position
+Alt+D Report line/word/character count
+Ctrl+G Display help text
+
+Various
+
+Alt+A Turn the mark on/off TabIndent marked region
+Shift+Tab   Unindent marked region
+Alt+V Enter next keystroke verbatim
+Alt+N Turn line numbers on/off
+Alt+P Turn visible whitespace on/off
+Alt+X Hide or unhide the help lines
+Ctrl+L Refresh the screen
 
 
 
