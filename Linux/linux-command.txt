@@ -34,6 +34,8 @@ command -V [command]             # Same as type, more detailed
 
 alias                           To check the list of all alias
 alias ll='ls -l'                # Creates a shortcut named 'll' that runs 'ls -l'  
+unalias [command ]              To remove an existing alias
+
 
 
 
