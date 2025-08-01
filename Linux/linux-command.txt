@@ -282,6 +282,7 @@ General ########
 users                         Shows list of active users.
 whoami                        Show current user name.
 cut -d: -f1 /etc/passwd       Lists all user accounts on the system.
+awk -F: '$3>=1000 {print $1}' /etc/passwd  # Show only real (human) users
 groups                        Shows all groups the current user belongs to.
 id                            Shows user ID, group ID, and groups for the current user.
 w                             Shows who is logged in and what they are doing.
@@ -290,7 +291,7 @@ uname                         Shows system info
 ls /home                      Shows all users folders in the /home directory.
 sudo passwd                   Set password for the current user
 sudo passwd [user name]       Set password for other user
-
+getent passwd | awk -F: '$3>=1000 && $6 ~ /^\/home/ {print $1, $6}'   # List all real users with home dirs
 
 
 
