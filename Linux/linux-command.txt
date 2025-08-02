@@ -109,7 +109,7 @@ echo > newfile.txt      To create a new file
 cat > newfile.txt       To create a new file ( it will ask u to write text, CTRL + D to exit. 
 rm -r [dir]             Recursively delete directory and contents.
 rm -rf [dir]            Force delete directory without prompts.
-Alt + *                 Show files/folders in current dir
+df -h                  # Shows disk space usage of all file systems in a human-readable format.
 
 
 
