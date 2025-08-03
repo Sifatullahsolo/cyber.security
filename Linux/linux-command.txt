@@ -282,6 +282,8 @@ cat /etc/passwd              Displays user account info like usernames, home dir
 
 
 General ########
+awk -F: '\$3 >= 1000 {print \$1}' /etc/passwd   # Display user names 
+cut -d: -f1 /etc/group        Displays All groups.
 users                         Shows list of active users.
 whoami                        Show current user name.
 cut -d: -f1 /etc/passwd       Lists all user accounts on the system.
