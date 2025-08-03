@@ -41,7 +41,7 @@ unalias [command ]              To remove an existing alias
 
 ### Navigate the File System
 
-cd                         Change directory. ( c = change, d= directory) 
+cd                         # User home dir. Change directory. ( c = change, d= directory) 
 cd /                       Go to root directory.
 cd /home                   brings u to user home dir
 cd ~                       Navigate to home directory for the user 
@@ -295,6 +295,29 @@ ls /home                      Shows all users folders in the /home directory.
 sudo passwd                   Set password for the current user
 sudo passwd [user name]       Set password for other user
 getent passwd | awk -F: '$3>=1000 && $6 ~ /^\/home/ {print $1, $6}'   # List all real users with home dirs
+
+duf   or    df               Shows disk usage for all mounted filesystems in a nice table.
+wget                         Download file, example:     wget http://example.com/file.zip
+curl                         Downloads file, exame:      curl -O http://example.com/file.zip
+
+
+ping --help
+
+netstat --help               Shows active network connections, ports, and protocols.
+
+ufw --help                   Firewall enable disable etc
+
+
+free --help
+free -h                     shows memory RAM USAG
+
+
+
+
+top --help                  Shows real-time system processes and resource usage.
+htop                        see it on prettier way 
+ps -aux                     Shows all running process in details. 
+
 
 
 
