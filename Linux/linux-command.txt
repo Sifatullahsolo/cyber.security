@@ -116,6 +116,56 @@ df -h                  # Shows disk space usage of all file systems in a human-r
 
 
 
+
+
+
+# 1. SOFT LINK (Symbolic Link - Like Shortcut)  
+
+echo "Hello World" > original.txt          # Create a file  
+ln -s original.txt soft_link.txt          # Create soft link  
+ls -l soft_link.txt                       # Show link target (-> original.txt)  
+cat soft_link.txt                         # Reads "Hello World"  
+rm original.txt                           # Delete original  
+cat soft_link.txt                         # ❌ Fails (broken link!)  
+
+# 2. HARD LINK (Mirror Copy - Same Data)  
+
+echo "Linux Links" > hard_original.txt     # Create another file  
+ln hard_original.txt hard_link.txt        # Create hard link  
+ls -i hard_original.txt hard_link.txt     # Check same inode (proof it's linked)  
+cat hard_link.txt                         # Reads "Linux Links"  
+rm hard_original.txt                      # Delete original  
+cat hard_link.txt                         # ✅ Still works! (data preserved)  
+
+# 3. DELETE LINKS  
+
+unlink soft_link.txt                      # Delete soft link  
+rm hard_link.txt                          # Delete hard link  
+
+# =============================================  
+# SUMMARY (What Happened?)  
+# =============================================  
+echo "  
+Soft Link:  
+- Command: ln -s ORIGINAL LINK  
+- Breaks if original deleted.  
+- Works for files/folders.  
+
+Hard Link:  
+- Command: ln ORIGINAL LINK  
+- Survives if original deleted.  
+- Works ONLY for files.  
+
+
+
+
+
+
+
+
+
+
+
 NANO COMMAND  ##############################3
 
 nano file               Edit/create file in nano editor.
