@@ -1,1 +1,11 @@
-.
+##################    EagleEye Overview of Cyber Security Study    ################
+
+
+NIST Cybersecurity Framework 5 core functions:  ### Shortcut: "IPDRR" 
+
+Identify – Understand risks (assets, threats, policies).
+Protect – Safeguard systems (access control, training, encryption).
+Detect – Find threats early (monitoring, anomalies).
+Respond – Act during/after incidents (containment, reporting).
+Recover – Restore operations (backups, lessons learned).
+-----------------------------------------------------------------------
