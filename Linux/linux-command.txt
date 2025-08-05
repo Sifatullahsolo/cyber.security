@@ -161,6 +161,223 @@ Hard Link:
 
 
 
+pandoc --help 
+
+
+wc --help
+
+
+
+
+
+
+
+
+|  using pipe 
+
+# 1. List files and filter for .txt files
+ls -l | grep ".txt"          # Shows only .txt files in current directory
+
+# 2. Count lines in a file
+cat /etc/passwd | wc -l      # Counts number of user accounts
+
+# 3. Find processes matching 'chrome' and count them
+ps aux | grep "chrome" | wc -l  # Counts running Chrome processes
+
+# 4. Sort files by size (largest last)
+ls -lh | sort -k 5 -n       # Sorts files by 5th column (size) numerically
+
+# 5. Monitor log updates in real-time
+tail -f /var/log/syslog | grep "error"  # Shows live system errors
+
+# 6. Get disk usage of a directory
+du -sh /home | awk '{print $1}'  # Shows total size of /home in human-readable format
+
+# 7. Extract unique IPs from a log
+cat /var/log/auth.log | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | sort | uniq  # Lists unique IPs in auth log
+
+# 8. Check top 5 memory-consuming processes
+ps aux --sort=-%mem | head -n 6  # Shows top 5 processes (header is line 1)
+
+# 9. Find all readable files by user
+find / -type f -readable 2>/dev/null | wc -l  # Counts readable files system-wide
+
+# 10. Generate random password
+cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1  # Creates a 12-char random password
+
+
+
+
+Using ||    double pipe 
+# 1. Run second command ONLY if first fails
+false || echo "First command failed, so I run!"
+
+# 2. Try to open file OR show error
+cat non_existent_file.txt || echo "File not found!"
+
+# 3. Combine with && (AND)
+mkdir new_dir && cd new_dir || echo "Failed to create/enter dir"
+
+# 4. Set default value if command fails
+config_file=$(find / -name "config.yml" 2>/dev/null) || config_file="./default.yml"
+echo "Using config: $config_file"
+
+# 5. Exit script on error
+rm important.lock || { echo "Couldn't remove lock file!"; exit 1; }
+
+# 6. Multiple fallbacks
+which python3 || which python2 || echo "No Python found"
+
+
+
+
+
+
+&& Double ampersand  AND 
+# 1. Run second command ONLY if first succeeds
+true && echo "First command succeeded, so I run!"
+
+# 2. Make dir AND enter it (only if mkdir succeeds)
+mkdir new_dir && cd new_dir
+
+# 3. Chain multiple commands
+touch file.txt && echo "Hello" > file.txt && cat file.txt
+
+# 4. Check if file exists AND read it
+[ -f /etc/hosts ] && cat /etc/hosts
+
+# 5. Build code AND run if successful
+make && ./my_program
+
+# 6. Combine with || for error handling
+rm old_file && echo "Deleted" || echo "Failed to delete"
+
+# 7. Check connection AND fetch data
+ping -c1 google.com &>/dev/null && curl google.com
+
+
+
+
+
+
+
+mc --help 
+
+
+purge --help 
+
+
+dpkg --help                     # But Use apt for 99% of cases (safer/easier)
+
+
+snap --help 
+
+
+
+
+
+
+
+
+
+
+
+
+# # # Downloading a .deb file → 2. Installing it → 3. Verifying → 4. Cleanup
+
+# =============================================
+# 1. DOWNLOAD A PACKAGE (e.g., Google Chrome)
+# =============================================
+echo "Step 1: Downloading .deb file..."
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+# =============================================
+# 2. INSTALL THE DOWNLOADED PACKAGE
+# =============================================
+echo -e "\nStep 2: Installing the package..."
+sudo apt install ./google-chrome-stable_current_amd64.deb
+
+# =============================================
+# 3. VERIFY IT WORKED
+# =============================================
+echo -e "\nStep 3: Verifying installation..."
+which google-chrome || echo "Installation failed!"
+
+# =============================================
+# 4. CLEANUP (OPTIONAL)
+# =============================================
+echo -e "\nStep 4: Cleaning up..."
+rm google-chrome-stable_current_amd64.deb
+echo "Done! Chrome is now installed."
+
+
+
+
+
+
+
+
+
+
+
+apt --help
+# 1. Update package lists (always do this first)
+sudo apt update
+
+# 2. Upgrade installed packages
+sudo apt upgrade
+
+# 3. Install a package
+sudo apt install package_name
+
+# 4. Remove a package (keeps config files)
+sudo apt remove package_name
+
+# 5. Completely remove package + configs
+sudo apt purge package_name
+
+# 6. Search for packages
+apt search "search_term"
+
+# 7. Show package info
+apt show package_name
+
+# 8. List installed packages
+apt list --installed
+
+# 9. Autoremove unused packages
+sudo apt autoremove
+
+# 10. Fix broken dependencies
+sudo apt --fix-broken install
+
+# 11. Clean up downloaded packages
+sudo apt clean
+
+
+# ## Always run sudo apt update first
+
+Use apt instead of apt-get (newer, simpler)
+
+Add -y to auto-confirm (e.g., sudo apt install -y package)
+
+# Common Combinations:
+
+# Update & upgrade in one line
+sudo apt update && sudo apt upgrade -y
+
+# Install + autoremove in one line
+sudo apt install package && sudo apt autoremove
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -810,6 +1027,157 @@ Alt+N Turn line numbers on/off
 Alt+P Turn visible whitespace on/off
 Alt+X Hide or unhide the help lines
 Ctrl+L Refresh the screen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###   EXTRA
+
+sudo apt update- update the list of packages from repositories (preparing an update or installing software)
+
+sudo apt upgrade -y- perform a software update
+
+sudo apt-get install htop- install the htop utility
+
+sudo apt-get remove htop- remove htop utility
+
+sudo apt-get purge htop- remove the htop utility along with its settings
+
+apt moo- cow superpower
+
+aptitude moo -vvvvv- cow superpower 2
+
+sudo apt install cowsay- cow superpower 3
+
+
+
+dpkg -l- display a list of installed packages
+
+dpkg -l | wc -l- display the number of installed packages
+
+dpkg –l tree- display info about the tree package
+
+apt show tree- display info about the tree package
+
+apt download htop- download the package as a *.deb file
+
+sudo dpkg -i htop_3.0-11_amd64.deb- install the package using the dpkg utility
+
+sudo apt install snapd- install snap package manager
+
+apt search opera- search for opera package in apt repositories
+
+snap find opera- search for the opera package in the snap repositories
+
+snap list- list packages installed by snap manager
+
+sudo snap install opera- install opera package
+
+sudo snap remove opera- remove opera package
+
+
+
+# download VirtualBox deb package from the official website
+
+wget https://download.virtualbox.org/virtualbox/7.1.4/virtualbox-7.1_7.1.4-165100~Ubuntu~jammy_amd64.deb
+
+
+
+ls
+
+# install deb package from downloaded file
+
+sudo dpkg -i virtualbox-7.1_7.1.4-165100~Ubuntu~jammy_amd64.deb
+
+# remove VirtualBox package
+
+sudo dpkg -r virtualbox-7.1
+
+
+
+# working with the /etc/apt directory
+
+ls /etc/apt
+
+cd /etc/apt
+
+ll
+
+
+
+# output the specified file to the screen
+
+cat sources.list
+
+# create a new file to specify the VirtualBox repository
+
+sudo nano sources.list.d/vbox.list
+
+# view catalog
+
+ls sources.list.d
+
+tree
+
+
+
+# output the created file to the screen
+
+cat sources.list.d/vbox.list
+
+# download and install the VirtualBox repository key
+
+wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
+
+# refresh repository lists (important after adding a new repo)
+
+sudo apt update
+
+# install VirtualBox package from repository
+
+sudo apt install virtualbox
+
+
+
+# call VirtualBox help (to confirm successful installation)
+
+whatis virtualbox
+
+virtualbox --help
+
+
+
+# output distribution code name
+
+lsb_release -a
+
+
+
+# call full help for add-apt-repository command
+
+man add-apt-repository
+
+# install additional package for add-apt-repository utility
+
+sudo apt install software-properties-common
+
+
+
+
+
+
+
+
 
 
 
