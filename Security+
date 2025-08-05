@@ -1,6 +1,16 @@
 ##################    EagleEye Overview of Cyber Security Study    ################
 
 
+
+
+
+
+
+
+
+
+
+
 NIST Cybersecurity Framework 5 core functions:  ### Shortcut: "IPDRR" 
 
 Identify – Understand risks (assets, threats, policies).
@@ -9,3 +19,18 @@ Detect – Find threats early (monitoring, anomalies).
 Respond – Act during/after incidents (containment, reporting).
 Recover – Restore operations (backups, lessons learned).
 ------------------------------------------------------------------------
+Gap Analysis = Compare current security vs. ideal (NIST CSF goals), find missing pieces, and fix them.
+
+3-Step Shortcut:
+Where are we now? (Check tools/policies in place).   # Current: No backups.
+Where should we be? (NIST’s 5 functions).   # Ideal: NIST "Recover" needs backups.
+What’s missing? (Prioritize quick wins vs. long-term).   # Gap: Set up automated backups.
+# Output: A simple table or list of gaps to fix. 🛠️
+------------------------------------------------------------------------
+
+
+
+
+
+
+
