@@ -27,6 +27,39 @@ Where should we be? (NIST’s 5 functions).   # Ideal: NIST "Recover" needs back
 What’s missing? (Prioritize quick wins vs. long-term).   # Gap: Set up automated backups.
 # Output: A simple table or list of gaps to fix. 🛠️
 ------------------------------------------------------------------------
+CONTROL OBJECTIVE =      ( Specific security goals (e.g., "Block 99% of malware) )
+* Objective: Prevent unauthorized access.
+* Control: MFA.
+* Measure: % of users enrolled (Functionality), login attacks blocked (Effectiveness).
+
+CONTROLS = ( Tools/actions to hit those goals (e.g., antivirus, firewalls)
+* Reducing, eliminating, Fixing vulnerabilities  
+* Lowering exploit chances    
+* Reducing impact of exploits
+
+COUNTERMEASURE =      (Hifazati Iqdaam)
+* Functionality (what it does)  
+* Effectiveness (how well it works)
+* Assurance (confidence it’s working)      
+* Cost-Benefit (ROI)
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
