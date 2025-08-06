@@ -64,6 +64,30 @@ Diffie-Hellman (Key exchange only, not encryption).
 EdDSA (Digital signatures, e.g., Ed25519).
 ---------------------------------------------------------
 
+Layer	Simple Name	What It Does	Real-Life Example
+7	Application	You write the message / pick the gift 🎁	WhatsApp, Gmail, Zoom
+6	Presentation	Wraps the gift in a way your friend understands 🎀	Encryption, format
+5	Session	Opens the door to start chatting 🗣️	Call setup, login session
+4	Transport	Breaks gift into pieces & numbers them 📦📦📦	Makes sure all arrive
+3	Network	Finds the best road to your friend 🗺️	IP address, routing
+2	Data Link	Gets it safely across one street 🚦	MAC address, switch
+1	Physical	Sends it on wires/waves 🚗📡	Cable, Wi-Fi, fiber
+
+🧱 Short Story Summary:
+App layer: You say “Hi!”
+
+Presentation: Your language is turned into symbols or code
+
+Session: A connection is opened
+
+Transport: Message is broken into smaller packets
+
+Network: Each packet is sent on a path
+
+Data link: Packets are delivered safely across each hop
+
+Physical: The bits travel through cables or Wi-Fi
+_____________________________________________________________-
 
 
 
