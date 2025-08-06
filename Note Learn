@@ -45,3 +45,58 @@ But there is a burglar!
 ❌ Big mistake.
 
 🔕 "NO burglar" → but a thief is inside!
+-------------------------------------------------------------------
+. Symmetric Encryption (Same Key 🔑)
+Algorithms:
+
+AES (Advanced Encryption Standard) – Most common (128/256-bit).
+DES (Deprecated, insecure).
+3DES (Triple DES – Slow, being phased out).
+ChaCha20 (Fast, used in TLS/SSL).
+
+
+. Asymmetric Encryption (Public/Private Keys 🔐)
+Algorithms:
+
+RSA (Key exchange & signatures, slow).
+ECC (Elliptic Curve Cryptography – Smaller keys, faster than RSA).
+Diffie-Hellman (Key exchange only, not encryption).
+EdDSA (Digital signatures, e.g., Ed25519).
+---------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
