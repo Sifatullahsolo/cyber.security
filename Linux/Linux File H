@@ -1,0 +1,54 @@
+🐧 Linux Filesystem Hierarchy — 50 Important Directories & What Goes Where
+Directory	Purpose & What To Put There
+/	Root directory — start of all files and folders
+/bin	Essential user binaries (commands like ls, cp, mv)
+/boot	Bootloader files, kernel images
+/dev	Device files (hardware like disks, terminals)
+/etc	System configuration files (network, users, services)
+/home	User home directories (e.g., /home/username)
+/lib	Essential shared libraries for binaries in /bin and /sbin
+/lib64	64-bit shared libraries
+/media	Mount points for removable media (USB drives, CDs)
+/mnt	Temporary mount points for filesystems
+/opt	Optional software packages and add-on applications
+/proc	Virtual filesystem for process and kernel info
+/root	Home directory for the root user
+/run	Runtime data for processes started since boot
+/sbin	System binaries (commands for system admin like ifconfig)
+/srv	Site-specific data served by system (e.g., /srv/projects)
+/sys	Kernel device tree and hardware info virtual filesystem
+/tmp	Temporary files created by apps and users
+/usr	User utilities and applications (read-only)
+/usr/bin	Non-essential user binaries
+/usr/lib	Libraries for /usr/bin programs
+/usr/local	Locally installed software (not managed by package manager)
+/usr/local/bin	Locally installed executable programs
+/usr/local/lib	Libraries for locally installed software
+/var	Variable data files (logs, databases, caches)
+/var/log	Log files for system and applications
+/var/spool	Spool directories (mail, print queues)
+/var/tmp	Temporary files preserved between reboots
+/etc/cron.d	System cron jobs
+/etc/init.d	Service scripts
+/etc/network	Network configuration files
+/etc/passwd	User account info (text file)
+/etc/shadow	User password hashes (secure file)
+/etc/hosts	Static IP address to hostname mappings
+/etc/fstab	Filesystem mount information
+/etc/resolv.conf	DNS resolver configuration
+/etc/sudoers	sudo permissions configuration
+/var/www	Web server files (e.g., Apache, Nginx)
+/var/lib	State information for apps (databases, package managers)
+/var/cache	Cached data from apps and package managers
+/var/run	Run-time variable data (process IDs)
+/usr/share	Architecture-independent data (docs, icons, locale files)
+/usr/include	Header files for C programming
+/usr/src	Source code for the Linux kernel and other software
+/root/.ssh	SSH keys and config files for root user
+/home/user/.ssh	SSH keys and config files for normal users
+/etc/ssl	SSL certificates and keys
+/var/mail	User mailbox files
+/var/spool/cron	User cron jobs
+/etc/profile	System-wide environment variables
+/etc/bash.bashrc	System-wide bash shell config
+/etc/issue	Message displayed before login
