@@ -1,37 +1,27 @@
 
-FIRST U NEED TO START PostgreSQL
+############### FIRST U NEED TO START PostgreSQL
 
 
 
+# Start with sudo service postgresql start.
+# Use sudo -u postgres psql to manage databases.
 
-# Start
+
+# Start postgresql
 sudo service postgresql start
-
 # Stop
 sudo service postgresql stop
-
 # Restart
 sudo service postgresql restart
-
 # Check status
 sudo service postgresql status
-
-
-Enable Autostart (Boot)
+# Enable Autostart (Boot)
 sudo systemctl enable postgresql
 
-Access PostgreSQL Shell
+# Access PostgreSQL Shell
 sudo -u postgres psql
 
 Exit shell: \q or CTRL + D.
-
-
-# Initialize Metasploit database
-sudo msfdb init
-
-# Rebuild database (if corrupted)
-sudo msfdb reinit
-
 
 
 If "postgresql service not found":
@@ -40,24 +30,27 @@ sudo apt update && sudo apt install postgresql -y
 
 
 
-Start with sudo service postgresql start.
-
-Use sudo -u postgres psql to manage databases.
 
 
-
-
-
-
-
-
+# USING METASPLOIT
 msfconsole        To open metasploit in CLI
+help              To open all commands list of metasploit
+
 
 
 
 Exploit ("Sploit") → Hacks the system (e.g., ms17_010).
 Auxiliary → Scans/prepares (e.g., portscan).
 Payload → Malicious action (e.g., meterpreter shell).
+
+
+
+
+
+
+
+
+
 
 
 
