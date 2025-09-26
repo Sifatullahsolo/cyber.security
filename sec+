@@ -56,6 +56,22 @@ ____________________________________________________
 Business Email Compromise (BEC) is a type of scam where an attacker tricks a company into sending money or sensitive information by pretending to be a trusted person.
 _______________________________________________________________________
 
+The "Attack Vector" metric answers the question: "What does the hacker need to reach the vulnerability?"
+There are four levels, from easiest to hardest to exploit:
+MEMORE:  PLAN 
+PHYSICAL / SCORE: 0.20
+LOCAL  / SCORE :  0.55
+ADJACENT/ SCORE:  0.62
+NETWORK / SCORE:  0.85
+___________________________________________________________________
+
+
+
+
+
+
+
+
 
 
 
