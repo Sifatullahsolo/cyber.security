@@ -67,7 +67,28 @@ ___________________________________________________________________
 
 
 
+CVSS = Common Vulnerability Scoring System
 
+It’s a standard way to rate how severe a security vulnerability is.
+
+The exam expects you to know the rating scale and what the numbers mean.
+
+👉 The CVSS scale looks like this:
+
+Score Range	Severity
+0.0	None
+0.1 – 3.9	Low
+4.0 – 6.9	Medium
+7.0 – 8.9	High
+9.0 – 10.0	Critical
+
+📖 Why for the exam?
+They might give you a scenario:
+
+“A vulnerability has a CVSS score of 9.5” → you should know that’s Critical.
+
+Or: “Which vulnerability poses the greatest risk?” → you compare by score.
+___________________________________________
 
 
 
