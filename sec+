@@ -184,6 +184,65 @@ _____________________________________________________________-
 
 Vulnrability lifecycle:
 
+_____________________________________________________
+Code Analysis in Cybersecurity (2 Main Types):
+
+SAST (Static Application Security Testing)
+"White-box" testing
+When: Scans source code before running it
+Finds: Coding flaws, vulnerabilities, bad practices
+Tools: SonarQube, Checkmarx, Fortify
+
+DAST (Dynamic Application Security Testing)
+"Black-box" testing
+When: Tests running application (from the outside)
+Finds: Runtime vulnerabilities, configuration errors
+Tools: OWASP ZAP, Burp Suite
+Bonus: SCA (Software Composition Analysis)
+Scans third-party libraries/dependencies for known vulnerabilities
+Tools: Snyk, Dependency-check
+
+Simple Rule: SAST finds bugs in your code, DAST finds holes in your running app, SCA finds risks in imported code.
+
+_________________________________________________________________________
+
+IDOR = Insecure Direct Object Reference
+
+It's a vulnerability where an attacker can access someone else's data by changing an ID in the URL or request.
+
+Simple Example:
+Normal User's URL:
+
+text
+https://bank.com/account?user_id=123
+Hacker Changes ID:
+
+text
+https://bank.com/account?user_id=124
+
+______________________________________________________________________
+Request Forgery = fake request
+1. CSRF (Cross-Site Request Forgery)
+Attacker tricks your browser to send a request.
+Works if you are logged in (cookies/session).
+Example: click link → money sent without knowing.
+Parts: logged-in user + malicious link + cookies + trusted server.
+
+2. SSRF (Server-Side Request Forgery)
+Attacker tricks the server to send requests.
+Example: server loads http://127.0.0.1/admin → attacker sees internal systems.
+Parts: user input + server request + attacker’s bad input.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
