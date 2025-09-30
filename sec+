@@ -238,7 +238,7 @@ Remove comments from source code before deployment because they can guide attack
 _________________________________________________________________________
  steganography is concerned with concealing both the fact that a secret message is being sent and its contents
 _________________________________________________________________________
-Symmetric Key System Notes
+Symmetric Key System Notes   🔥🔥🔥🔥🔥🔥
 
 Symmetric encryption: one key per pair of people.
 
@@ -247,17 +247,45 @@ Total keys formula: n*(n-1)/2 (n = number of people)
 New keys when adding 1 person = number of existing people
 
 Example:
-
 10 people → 10*9/2 = 45 keys
-
 Add 11th person → 11*10/2 = 55 keys
-
 New keys added = 55 - 45 = 10
-
 Answer: 10
 
+
+Asymmetric Key System Notes 🔥🔥🔥🔥🔥🔥🔥
+
+Asymmetric encryption: each person has 2 keys → Public key + Private key.
+
+Total keys formula: 2n (n = number of people).
+
+New keys when adding 1 person = 2 (their public + private).
+
+Example:
+10 people → 2*10 = 20 keys
+Add 11th person → 2*11 = 22 keys
+New keys added = 22 - 20 = 2
+Answer: 2
 _________________________________________________________________________
+Certificate File Formats (for notes)
+ PEM (Privacy Enhanced Mail)
+ - Text format, easy to share (like email copy)
+ - Extensions: .pem, .crt, .cer, .key
+ DER (Distinguished Encoding Rules)
+ - Binary format (like barcode)
+ - Extensions: .der, .cer
+ PFX / PKCS#12
+ - Certificate + private key + extras, password protected (like locked wallet)
+ - Extensions: .pfx, .p12
+ P7B / PKCS#7
+ - Certificate chain only, no private key (like official copy)
+ - Extensions: .p7b, .p7c
+ Other types:
+ - SPC → Microsoft software publisher certificate
+ - CRT / CER → Often same as PEM or DER, depending on encoding
+ - KEY → Private key only
 _________________________________________________________________________
+
 _________________________________________________________________________
 _________________________________________________________________________
 _________________________________________________________________________
