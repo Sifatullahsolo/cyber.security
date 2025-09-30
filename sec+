@@ -285,8 +285,27 @@ Certificate File Formats (for notes)
  - CRT / CER → Often same as PEM or DER, depending on encoding
  - KEY → Private key only
 _________________________________________________________________________
-
+SSL Certificate Types:
+ DV (Domain Validation)
+ - Checks: Domain ownership only
+ - Trust: Low
+ - Use: Personal sites, blogs
+ OV (Organization Validation)
+ - Checks: Domain + business registration
+ - Trust: Medium
+ - Use: Business websites
+ EV (Extended Validation)
+ - Checks: Strict legal/organizational verification
+ - Trust: Highest
+ - Use: Banks, financial sites
+Note: All provide same encryption, but different levels of identity trust.
 _________________________________________________________________________
+RADIUS: Centralized authentication for network access (like WiFi).
+LDAP: Queries and manages information in a directory (like user accounts).
+EAP & CHAP: Secure protocols for verifying identity during a connection.
+OAuth: Grants an application limited access to your data without giving it your password.
+OpenID: Allows you to use a single digital identity (like Google) to log in to many different websites.
+SAML: Enables Single Sign-On (SSO) for web applications across different domains.
 _________________________________________________________________________
 _________________________________________________________________________
 _________________________________________________________________________
