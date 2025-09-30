@@ -232,11 +232,37 @@ Parts: logged-in user + malicious link + cookies + trusted server.
 Attacker tricks the server to send requests.
 Example: server loads http://127.0.0.1/admin → attacker sees internal systems.
 Parts: user input + server request + attacker’s bad input.
+___________________________________________________________________________________
 
+Remove comments from source code before deployment because they can guide attackers and reveal sensitive information.
+_________________________________________________________________________
+ steganography is concerned with concealing both the fact that a secret message is being sent and its contents
+_________________________________________________________________________
+Symmetric Key System Notes
 
+Symmetric encryption: one key per pair of people.
 
+Total keys formula: n*(n-1)/2 (n = number of people)
 
+New keys when adding 1 person = number of existing people
 
+Example:
+
+10 people → 10*9/2 = 45 keys
+
+Add 11th person → 11*10/2 = 55 keys
+
+New keys added = 55 - 45 = 10
+
+Answer: 10
+
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
+_________________________________________________________________________
 
 
 
