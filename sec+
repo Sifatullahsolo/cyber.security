@@ -307,7 +307,63 @@ OAuth: Grants an application limited access to your data without giving it your 
 OpenID: Allows you to use a single digital identity (like Google) to log in to many different websites.
 SAML: Enables Single Sign-On (SSO) for web applications across different domains.
 _________________________________________________________________________
-_________________________________________________________________________
+Firewall Types:
+
+1. Packet Filtering Firewall
+Checks: Source/destination IP, port, protocol
+Action: Allows/blocks packets based on basic rules
+Use: Basic network protection
+
+2. Stateful Firewall
+Checks: Packet + connection state
+Action: Tracks conversations, allows related traffic
+Use: More intelligent than packet filtering
+
+3. NGFW (Next-Generation Firewall)
+Checks: Everything stateful + app awareness, user ID, content
+Action: Deep packet inspection, blocks threats
+Use: Modern security with application control
+
+4. WAF (Web Application Firewall)
+Checks: HTTP/HTTPS traffic to web apps
+Action: Blocks SQLi, XSS, other web attacks
+Use: Protects websites specifically
+
+5. Proxy Firewal:
+Checks: All traffic as intermediary
+Action: Acts as middleman, hides internal network
+Use: Content filtering, anonymity
+
+6. UTM (Unified Threat Management)
+Checks: All-in-one security
+Action: Firewall + antivirus + IPS + content filter
+Use: Small business all-in-one solution
+________________________________________________________________________
+Email Security Layers (The Defense Team)
+
+SPF (Sender Policy Framework) = The ID Check
+
+Question: "Is this mail server allowed to send email for this domain?"
+
+Action: Checks the sender's IP address against a published list of authorized servers for that domain.
+
+DKIM (DomainKeys Identified Mail) = The Tamper-Proof Seal
+
+Question: "Has this email been altered since it was sent?"
+
+Action: Uses a digital signature to verify the email's content and headers are intact.
+
+DMARC (Domain-based Message Authentication...) = The Strict Boss
+
+Question: "What should we do if an email fails the SPF or DKIM check?"
+
+Action: Uses the results from SPF and DKIM to enforce a policy: Quarantine the email, Reject it completely, or do nothing (None for monitoring).
+
+Gateway = The Final Security Guard
+
+Question: "Does this email contain malware, phishing links, or spam?"
+
+Action: Scans the email's content, attachments, and URLs for known threats after it passes the authentication checks.
 _________________________________________________________________________
 _________________________________________________________________________
 
